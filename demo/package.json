@@ -16,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/allisonIsCoding/Kafkasocks/issues"
   },
-  "homepage": "https://github.com/allisonIsCoding/Kafkasocks#readme"
+  "homepage": "https://github.com/allisonIsCoding/Kafkasocks#readme",
+  "dependencies": {
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "@types/node": "^15.0.3"
+  }
 }
