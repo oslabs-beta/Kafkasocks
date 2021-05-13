@@ -1,7 +1,9 @@
 import express from 'express';
-// import path = require('path');
-import path from 'path';
-import dotenv from 'dotenv';
+import path = require('path');
+import dotenv = require('dotenv');
+
+// import path from 'path';
+// import dotenv from 'dotenv';
 
 
 const app = express();
