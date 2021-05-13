@@ -4,7 +4,7 @@
   "description": "",
   "main": "client/index.tsx",
   "engines": {
-    "node": "12.18.3",
+    "node": "14.15.5",
     "npm": "7.13.0"
   },
   "scripts": {
@@ -44,8 +44,10 @@
     "@material-ui/icons": "^4.11.2",
     "awesome-typescript-loader": "^5.2.1",
     "babel-jest": "^26.6.3",
+    "chokidar": "^1.7.0",
     "concurrently": "^6.0.0",
     "cookie-parser": "^1.4.5",
+    "core.js": "^0.4.2",
     "cross-env": "^7.0.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
@@ -62,6 +64,7 @@
     "react-syntax-highlighter": "^15.4.3",
     "react-tsparticles": "^1.26.3",
     "regenerator-runtime": "^0.13.7",
+    "request": "^2.88.2",
     "set-interval": "^2.1.2",
     "ts-loader": "^9.1.2",
     "ts-node": "^9.1.1",
@@ -110,7 +113,7 @@
     "ts-jest": "^26.5.6",
     "ts-loader": "^8.0.18",
     "webpack": "^5.37.0",
-    "webpack-cli": "^4.5.0",
+    "webpack-cli": "^4.7.0",
     "webpack-dev-server": "^3.11.2"
   }
 }
