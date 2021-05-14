@@ -5,7 +5,12 @@
             "./types",
             "./node_modules/@types"
         ],
-        "target": "ES5",
+        "target": "esnext",
+        "watch": true,
+        "lib": [
+            "dom",
+            "es2017"
+        ],
         "module": "commonJS",
         "jsx": "react",
         "sourceMap": true,
