@@ -11,7 +11,8 @@
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "ts-node ./server/server.ts",
-    "dev": "concurrently \"cross-env NODE_ENV=development webpack-dev-server --config webpack.config.js --hot --mode development\" \"nodemon server/server.ts\""
+    "__dev-server-script-comment__": "currently,  the dev script is not working correctly due to the \"webpack-dev-server\" portion. Start script is working as intended.", 
+    "__this-script-is-not-working__dev": "concurrently \"cross-env NODE_ENV=development webpack-dev-server --config webpack.config.js --hot --mode development\" \"nodemon server/server.ts\""
   },
   "repository": {
     "type": "git",
@@ -44,7 +45,6 @@
     "@material-ui/icons": "^4.11.2",
     "awesome-typescript-loader": "^5.2.1",
     "babel-jest": "^26.6.3",
-    "chokidar": "^1.7.0",
     "concurrently": "^6.0.0",
     "cookie-parser": "^1.4.5",
     "core.js": "^0.4.2",
