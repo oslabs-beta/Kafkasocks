@@ -18,6 +18,7 @@ module.exports = {
   devServer: {
     contentBase: './build',
     port: 8000,
+    hot: true,
     proxy: {
       '/': 'http://localhost:3333',
     },
