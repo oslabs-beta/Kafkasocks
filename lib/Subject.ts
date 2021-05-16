@@ -1,4 +1,5 @@
 //TBD: bring the functionality of the Consumer class into Subject?
+
 const Consumer = require('./Consumer.ts');
 
 

@@ -1,9 +1,11 @@
 //to be translated into typescript
 // const { Kafka } = require('kafkajs');
 // const Subject = require('./Subject.ts');
-
-//what functionality can we add here that would differentiate this from what's provided by Kafka? 
-
+// const { ConsumerInterface, ioInterface, EventInterface } = require("./interfaces");
+//what functionality can we add here that would differentiate this from what's provided by Kafka?
+// import ConsumerInterface from './interfaceTypes';
+// import ioInterface from "./interfaceTypes";
+// import EventInterface from "./interfaceTypes";
 /* Note to Allison... Jason has chosen a path. This is the path we took. We ~may~ need to refactor these type declarations in the future*/
 
 // if this doesn't work use any as type of consumer
@@ -29,9 +31,9 @@ interface Message {
   value: string;
 }
 
-export class Consumer {
+class Consumer {
   //consumer type is currently set to 'any' for functionality purpose.
-  //we would like to have a specific type declared so that connect, subscribe and any other key would be accepted. 
+  //we would like to have a specific type declared so that connect, subscribe and any other key would be accepted.
   consumer: ConsumerInterface; //will we make these three an instance of a Kafka object or are we going to set an interface for each?
   topic: string;
   event: string;
@@ -39,13 +41,17 @@ export class Consumer {
   // consumer is a Kafka consumer object
   // topic is the Kafka object's topic
   // event is the socket.io event on which the kafka message is being passed
-  constructor(consumer: ConsumerInterface, topic: string, event: string) {
+  constructor(
+    consumer: ConsumerInterface,
+    topic: string,
+    event: string
+  ) {
     this.consumer = consumer; //
     this.topic = topic;
     this.event = event;
     //this.io = io;
   }
-  
+
   // instantiate the Kafka consumer on the passed topic
   // and subscribes with that consumer
   async run(io: ioInterface) {
@@ -68,3 +74,6 @@ export class Consumer {
     });
   }
 }
+
+// export const Consumer = new Consumer();
+export default Consumer; 

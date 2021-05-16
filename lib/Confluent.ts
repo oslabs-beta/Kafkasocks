@@ -1,4 +1,5 @@
 // console.log('hello world');
+
  const { Kafka } = require('kafkajs');
 // const Kafka = require...
 
@@ -29,7 +30,7 @@ export class Confluent {
         ? { username: this.key, password: this.secret, mechanism: "plain" }
         : null;
     const ssl = !!sasl;
-    
+
     return new Kafka({
       clientId: client,
       brokers: [this.server],
