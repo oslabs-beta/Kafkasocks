@@ -1,5 +1,5 @@
 //to be translated into typescript
-// const { Kafka } = require('kafkajs');
+const { Kafka } = require('kafkajs');
 // const Subject = require('./Subject.ts');
 // const { ConsumerInterface, ioInterface, EventInterface } = require("./interfaces");
 //what functionality can we add here that would differentiate this from what's provided by Kafka?
@@ -8,26 +8,24 @@
 // import EventInterface from "./interfaceTypes";
 /* Note to Allison... Jason has chosen a path. This is the path we took. We ~may~ need to refactor these type declarations in the future*/
 
-// if this doesn't work use any as type of consumer
-// or have Allison (our Typescript guru) fix it
-// this might not work, but we wont know until Subject is built and we test
-interface ConsumerInterface {
+type ConsumerInterface = {
   connect: Function;
   subscribe: Function;
   run: Function;
 }
+// interface ConsumerInterface implements new Kafka();
 
-interface ioInterface {
+type ioInterface = {
   emit: Function;
 }
 
-interface EventInterface {
+type EventInterface = {
   topic: string;
   partition: string;
   message: Message;
 }
 
-interface Message {
+type Message = {
   value: string;
 }
 
