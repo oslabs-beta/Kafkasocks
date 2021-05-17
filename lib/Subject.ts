@@ -1,6 +1,6 @@
 //TBD: bring the functionality of the Consumer class into Subject?
 
-const Consumer = require('./Consumer.ts');
+// const Consumer = require('./Consumer.ts');
 
 
 interface ioInterface {
@@ -43,4 +43,4 @@ class Subject {
   }
 }
 
-export default Subject
+export default Subject;
