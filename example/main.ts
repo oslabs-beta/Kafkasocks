@@ -1,11 +1,8 @@
 
 import { produce } from './producer'
 import { kafka } from './kafka'
-// const { Consumer } = require('./kafka-socks');
 import Consumer  from '../kafka-socks/Consumer';
-//const Subject = require('../kafka-socks/Subject.ts');
 import Subject from '../kafka-socks/Subject'
-// const { Subject } = require('./kafka-socks')
 require('dotenv').config();
 const express = require('express');
 const port = process.env.PORT
