@@ -52,24 +52,28 @@ class Consumer {
 
   // instantiate the Kafka consumer on the passed topic
   // and subscribes with that consumer
-  async run(io: ioInterface) {
+  async run(namespace: any) {
+    console.log('consumer is about to run')
     await this.consumer.connect();
+    console.log('consumer has connected')
 
     await this.consumer.subscribe({
       topic: this.topic,
       // topic: process.env.TOPIC,
       fromBeginning: true,
     });
+    console.log('consumer has subscribed to topic: ', this.topic)
 
     await this.consumer.run({
       eachMessage: async (eventInfo: EventInterface) => {
-        io.emit(this.event, eventInfo.message.value.toString());
+        namespace.emit(this.event, eventInfo.message.value.toString());
         console.log(
           "received Message from kafka",
           JSON.parse(eventInfo.message.value.toString())
         );
       },
     });
+    console.log('consumer has run')
   }
 }
 

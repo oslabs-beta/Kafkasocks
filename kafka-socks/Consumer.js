@@ -50,14 +50,17 @@ var Consumer = /** @class */ (function () {
     }
     // instantiate the Kafka consumer on the passed topic
     // and subscribes with that consumer
-    Consumer.prototype.run = function (io) {
+    Consumer.prototype.run = function (namespace) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.consumer.connect()];
+                    case 0:
+                        console.log('consumer is about to run');
+                        return [4 /*yield*/, this.consumer.connect()];
                     case 1:
                         _a.sent();
+                        console.log('consumer has connected');
                         return [4 /*yield*/, this.consumer.subscribe({
                                 topic: this.topic,
                                 // topic: process.env.TOPIC,
@@ -65,10 +68,11 @@ var Consumer = /** @class */ (function () {
                             })];
                     case 2:
                         _a.sent();
+                        console.log('consumer has subscribed to topic: ', this.topic);
                         return [4 /*yield*/, this.consumer.run({
                                 eachMessage: function (eventInfo) { return __awaiter(_this, void 0, void 0, function () {
                                     return __generator(this, function (_a) {
-                                        io.emit(this.event, eventInfo.message.value.toString());
+                                        namespace.emit(this.event, eventInfo.message.value.toString());
                                         console.log("received Message from kafka", JSON.parse(eventInfo.message.value.toString()));
                                         return [2 /*return*/];
                                     });
@@ -76,6 +80,7 @@ var Consumer = /** @class */ (function () {
                             })];
                     case 3:
                         _a.sent();
+                        console.log('consumer has run');
                         return [2 /*return*/];
                 }
             });
