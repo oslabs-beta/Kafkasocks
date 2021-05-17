@@ -4,9 +4,10 @@ exports.__esModule = true;
 var Subject = /** @class */ (function () {
     // io is socket server instance
     // consumerArr is an array of KafkaSocks consumerArr (from the Consumer class we created)
-    function Subject(io, consumerArr) {
+    function Subject(io, namespace, consumerArr) {
         if (consumerArr === void 0) { consumerArr = []; }
         this.io = io;
+        this.namespace = this.io.of("/" + namespace);
         this.consumerArr = consumerArr;
     }
     // adds a KafkaSocks Consumer to the consumerArr array property
@@ -18,12 +19,19 @@ var Subject = /** @class */ (function () {
     // opening the io server
     // invoke the running of the sockets corresponding to the varoius consumerArr in our consumerArr array
     Subject.prototype.connect = function () {
+        // this.io.on('connection', (socket: object) => {
+        //   // we need the socket to be listening to the event here
+        //   // there is no socket.on('this.event')
+        //   this.consumerArr.forEach((consumer: ConsumerInterface) => {
+        //   consumer.run(this.io);
+        //   });
+        // });
         var _this = this;
-        this.io.on("connection", function (socket) {
+        this.namespace.on('connection', function (socket) {
             // we need the socket to be listening to the event here
             // there is no socket.on('this.event')
             _this.consumerArr.forEach(function (consumer) {
-                consumer.run(_this.io);
+                consumer.run(_this.namespace);
             });
         });
     };
