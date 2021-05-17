@@ -41,3 +41,4 @@ export class Confluent {
   }
 
 
+export default Confluent;
