@@ -1,13 +1,4 @@
 "use strict";
-//to be translated into typescript
-// const { Kafka } = require('kafkajs');
-// const Subject = require('./Subject.ts');
-// const { ConsumerInterface, ioInterface, EventInterface } = require("./interfaces");
-//what functionality can we add here that would differentiate this from what's provided by Kafka?
-// import ConsumerInterface from './interfaceTypes';
-// import ioInterface from "./interfaceTypes";
-// import EventInterface from "./interfaceTypes";
-/* Note to Allison... Jason has chosen a path. This is the path we took. We ~may~ need to refactor these type declarations in the future*/
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -45,6 +36,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
+//to be translated into typescript
+var Kafka = require('kafkajs').Kafka;
 var Consumer = /** @class */ (function () {
     // consumer is a Kafka consumer object
     // topic is the Kafka object's topic
@@ -57,14 +50,17 @@ var Consumer = /** @class */ (function () {
     }
     // instantiate the Kafka consumer on the passed topic
     // and subscribes with that consumer
-    Consumer.prototype.run = function (io) {
+    Consumer.prototype.run = function (namespace) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.consumer.connect()];
+                    case 0:
+                        console.log('consumer is about to run');
+                        return [4 /*yield*/, this.consumer.connect()];
                     case 1:
                         _a.sent();
+                        console.log('consumer has connected');
                         return [4 /*yield*/, this.consumer.subscribe({
                                 topic: this.topic,
                                 // topic: process.env.TOPIC,
@@ -72,10 +68,11 @@ var Consumer = /** @class */ (function () {
                             })];
                     case 2:
                         _a.sent();
+                        console.log('consumer has subscribed to topic: ', this.topic);
                         return [4 /*yield*/, this.consumer.run({
                                 eachMessage: function (eventInfo) { return __awaiter(_this, void 0, void 0, function () {
                                     return __generator(this, function (_a) {
-                                        io.emit(this.event, eventInfo.message.value.toString());
+                                        namespace.emit(this.event, eventInfo.message.value.toString());
                                         console.log("received Message from kafka", JSON.parse(eventInfo.message.value.toString()));
                                         return [2 /*return*/];
                                     });
@@ -83,6 +80,7 @@ var Consumer = /** @class */ (function () {
                             })];
                     case 3:
                         _a.sent();
+                        console.log('consumer has run');
                         return [2 /*return*/];
                 }
             });

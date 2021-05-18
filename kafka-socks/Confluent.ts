@@ -1,7 +1,5 @@
-// console.log('hello world');
+const { Kafka } = require('kafkajs');
 
- const { Kafka } = require('kafkajs');
-// const Kafka = require...
 
 // Confluent class instantiates the connection Confluent Kafka cluster
 export class Confluent {
@@ -19,11 +17,6 @@ export class Confluent {
   }
 
   // create will return a Kafka Consumer object
-
-  // TODO:  look into more specific object typing
-  //        i.e., in this case we may want to be specific
-  //        that the object we are expecting is
-  //        an instance of the Confluent Kafka client
   create(client: string) {
     const sasl =
       this.key && this.secret
@@ -41,3 +34,4 @@ export class Confluent {
   }
 
 
+export default Confluent;
