@@ -13,7 +13,7 @@ import {
   Tooltip
 } from 'recharts';
 
-const socket = io('http://localhost:5050', {
+const socket = io('http://localhost:3333', {
   transports: ['websocket', 'polling']
 });
 

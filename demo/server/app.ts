@@ -1,6 +1,6 @@
-import express from 'express';
-import path = require('path');
-import dotenv = require('dotenv');
+const express = require('express');
+const path = require('path');
+const dotenv = require('dotenv');
 
 // import path from 'path';
 // import dotenv from 'dotenv';
