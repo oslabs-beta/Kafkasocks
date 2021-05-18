@@ -22,11 +22,25 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const React = __importStar(require("react"));
-const ReactDOM = __importStar(require("react-dom"));
-const styles_1 = require("@material-ui/core/styles");
-const App_1 = __importDefault(require("./components/App"));
-const theme_1 = __importDefault(require("./theme"));
-ReactDOM.render(React.createElement(styles_1.ThemeProvider, { theme: theme_1.default },
-    React.createElement(App_1.default, null)), document.getElementById('root'));
-//# sourceMappingURL=index.js.map
+const react_1 = __importStar(require("react"));
+const socket_io_client_1 = __importDefault(require("socket.io-client"));
+const recharts_1 = require("recharts");
+const socket = socket_io_client_1.default('http://localhost:3333', {
+    transports: ['websocket', 'polling']
+});
+const DataDisplay = (props) => {
+    const [data, setData] = react_1.useState([]);
+    react_1.useEffect(() => {
+        socket.on('cpu', cpuPercent => {
+            setData(currentData => [...currentData, cpuPercent]);
+        });
+    }, []);
+    return (react_1.default.createElement("div", null,
+        react_1.default.createElement("h1", null, "Real Time CPU Usage"),
+        react_1.default.createElement(recharts_1.LineChart, { width: 500, height: 300, data: data },
+            react_1.default.createElement(recharts_1.XAxis, { dataKey: "name" }),
+            react_1.default.createElement(recharts_1.YAxis, null),
+            react_1.default.createElement(recharts_1.Line, { dataKey: "value" }))));
+};
+exports.default = DataDisplay;
+//# sourceMappingURL=DataDisplay.js.map
