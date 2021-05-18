@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 import ReactDOM from 'react-dom';
-// import { useEffect, useState } from "react";
 
 import {
   BarChart,
