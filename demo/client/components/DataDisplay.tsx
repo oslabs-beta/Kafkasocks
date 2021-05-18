@@ -3,7 +3,7 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
 import "chartjs-adapter-luxon";
-// import "chartjs-plugin-streaming";
+import "chartjs-plugin-streaming";
 import { Chart } from 'chart.js';
 
 // import "./App.css";
