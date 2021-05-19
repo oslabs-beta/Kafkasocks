@@ -22,7 +22,8 @@
     },
     "include": [
         "./client/**/*",
-        "./client/components/*"
+        "./client/components/*",
+        "./server/*"
     ],
     "exclude": [
         "node_modules"
