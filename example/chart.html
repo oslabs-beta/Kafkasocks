@@ -9,20 +9,21 @@
 <body>
     <h1> RENDER THE STREAMS!!! </h1>
     <ul id="messages"></ul>
-    <button id = 'start'>click me</button>
+    <button id = 'stop'>click me</button>
     <script src="/socket.io/socket.io.js"></script>
     <script>
-        const socket = io();
-        const button = document.getElementById('start');
-            button.addEventListener('click', event => {
-             event.preventDefault();
-
-             socket.emit('consumer', 'clientID');
-        })  
+        const socket = io(); 
      
      
      //some kind of event listener based on when messages are being consumed
      const truckSocket = io('/trucks')
+
+    //  const button = document.getElementById('stop');
+    //         button.addEventListener('click', event => {
+    //          event.preventDefault();
+
+    //          truckSocket.emit('pause');
+    //     }) 
 
      truckSocket.on('truck message', function(msg) {
          const item = document.createElement('li');
