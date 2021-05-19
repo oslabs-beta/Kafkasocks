@@ -2,11 +2,8 @@
 exports.__esModule = true;
 var producer_1 = require("./producer");
 var kafka_1 = require("./kafka");
-// const { Consumer } = require('./kafka-socks');
 var Consumer_1 = require("../kafka-socks/Consumer");
-//const Subject = require('../kafka-socks/Subject.ts');
 var Subject_1 = require("../kafka-socks/Subject");
-// const { Subject } = require('./kafka-socks')
 require('dotenv').config();
 var express = require('express');
 var port = process.env.PORT;
