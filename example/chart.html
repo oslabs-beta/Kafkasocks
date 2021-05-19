@@ -18,12 +18,12 @@
      //some kind of event listener based on when messages are being consumed
      const truckSocket = io('/trucks')
 
-     const button = document.getElementById('stop');
-            button.addEventListener('click', event => {
-             event.preventDefault();
+    //  const button = document.getElementById('stop');
+    //         button.addEventListener('click', event => {
+    //          event.preventDefault();
 
-             truckSocket.emit('pause');
-        }) 
+    //          truckSocket.emit('pause');
+    //     }) 
 
      truckSocket.on('truck message', function(msg) {
          const item = document.createElement('li');
