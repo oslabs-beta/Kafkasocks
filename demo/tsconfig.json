@@ -23,7 +23,8 @@
     "include": [
         "./client/**/*",
         "./client/components/*",
-        "./server/*"
+        "./server/*",
+        "./build"
     ],
     "exclude": [
         "node_modules"
