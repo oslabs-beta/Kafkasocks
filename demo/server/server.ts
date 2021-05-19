@@ -18,31 +18,35 @@ const io = require("socket.io")(server, {
 
 //////////////////////////////////////////* Starting Producer Logic */////////////////////////////
 const { API_KEY, API_SECRET, KAFKA_BOOTSTRAP_SERVER, TOPIC } = process.env;
-const kafka = (new Confluent(API_KEY, API_SECRET, KAFKA_BOOTSTRAP_SERVER)).create('Kafkasocks_downloads1');
+const kafka = new Confluent(API_KEY, API_SECRET, KAFKA_BOOTSTRAP_SERVER).create(
+  "Kafkasocks_downloads1"
+);
 
 let idx = 0;
 // produer
 // every second, produce a random # between 0 and 9
-const produce = async (kafka) => {
-  console.log('starting the producer connection')
-    const producer = kafka.producer();
-  try {
-    await producer.connect();
-    await producer.send({
-      topic: TOPIC,
-      messages: [
-        {
-          key: String(idx),
-          value: Math.floor(Math.random() * 9).toString()
-        }
-      ]
+const produce = (kafka) => {
+  console.log("starting the producer connection");
+  const producer = kafka.producer();
+  producer
+    .connect()
+    .then(() => {
+      producer.send({
+        topic: TOPIC,
+        messages: [
+          {
+            key: String(idx),
+            value: Math.floor(Math.random() * 9).toString(),
+          },
+        ],
+      });
+      idx++;
+    })
+    .catch((err) => {
+      console.log("error in produce function", err);
     });
-    idx++;
-  } catch (err) {
-    console.log('error in produce function', err)
-  }
 };
-  
+
 produce(kafka);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -51,7 +55,6 @@ let tick = 0;
 
 // 1. listen for socket connections
 io.on("connection", (client) => {
-
   setInterval(() => {
     // 2. every second, emit a 'cpu' event to user
     os.cpuUsage((cpuPercent) => {
@@ -71,7 +74,7 @@ io.on("connection", (client) => {
 //         client.emit('cpu', {
 //           name: tick++,
 //           value: cpuPercent
-//         });  
+//         });
 //       });
 //     }, 1000);
 //   });
