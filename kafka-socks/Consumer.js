@@ -36,7 +36,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-//to be translated into typescript
 var Kafka = require('kafkajs').Kafka;
 var Consumer = /** @class */ (function () {
     // consumer is a Kafka consumer object
@@ -46,10 +45,8 @@ var Consumer = /** @class */ (function () {
         this.consumer = consumer; //
         this.topic = topic;
         this.event = event;
-        //this.io = io;
     }
-    // instantiate the Kafka consumer on the passed topic
-    // and subscribes with that consumer
+    // instantiate the Kafka consumer on the passed topic and subscribe with that consumer
     Consumer.prototype.run = function (namespace) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
@@ -63,7 +60,6 @@ var Consumer = /** @class */ (function () {
                         console.log('consumer has connected');
                         return [4 /*yield*/, this.consumer.subscribe({
                                 topic: this.topic,
-                                // topic: process.env.TOPIC,
                                 fromBeginning: true
                             })];
                     case 2:
@@ -80,6 +76,10 @@ var Consumer = /** @class */ (function () {
                             })];
                     case 3:
                         _a.sent();
+                        // namespace.on('pause', () => {
+                        //   console.log('disconnected...')
+                        //   // this.consumer.pause(/** */)
+                        // });
                         console.log('consumer has run');
                         return [2 /*return*/];
                 }
@@ -88,5 +88,4 @@ var Consumer = /** @class */ (function () {
     };
     return Consumer;
 }());
-// export const Consumer = new Consumer();
 exports["default"] = Consumer;

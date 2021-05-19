@@ -1,5 +1,12 @@
 "use strict";
 exports.__esModule = true;
+// interface ioInterface {
+//   on: Function;
+// }
+// interface ConsumerInterface {
+//   run: Function;
+//   pause: Function;
+// }
 var Subject = /** @class */ (function () {
     // io is socket server instance
     // consumerArr is an array of KafkaSocks consumerArr (from the Consumer class we created)
@@ -21,6 +28,9 @@ var Subject = /** @class */ (function () {
         this.namespace.on('connection', function (socket) {
             // we need the socket to be listening to the event here
             // there is no socket.on('this.event')
+            // socket.on('disconnect', consumer => {
+            //   consumer.
+            // });
             _this.consumerArr.forEach(function (consumer) {
                 consumer.run(_this.namespace);
             });
