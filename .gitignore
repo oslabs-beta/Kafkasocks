@@ -1,4 +1,6 @@
 node_modules
 .DS_Store
-Kafkasocks.js
-demo.bak
+*.bak
+Subject.js
+Consumer.js
+Confluent.js

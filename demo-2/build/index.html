@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  <script defer src="bundle.js"></script></head>
+  <body>
+    <ul id="messages"></ul>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+      // const socket = io();
+      // const socket = io('http://localhost:3000');
+      // const socket = io.connect('http://localhost:8000', {resource: '/socket.io/socket.io'});
+      // const truckSocket = io("/trucks");
+
+      // const truckSocket = io.connect();
+      const truckSocket = io.connect("http://localhost:3000");
+      const messages = document.getElementById("messages");
+      truckSocket.on("Jasons-new-message", function (msg) {
+        const item = document.createElement("li");
+        item.textContent = msg;
+        messages.appendChild(item);
+        window.scrollTo(0, document.body.scrollHeight);
+      });
+    </script>
+
+    this is the body of the html does this update too?
+  </body>
+</html>
