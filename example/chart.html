@@ -10,19 +10,49 @@
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-streaming@2.0.0-beta.2"></script>
     <title>Document</title>
 </head>
+<style>
+  body {
+    background-color: linen;
+  }
+  h1 {
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: center;
+    align-items: center;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+  .terminal-container {
+    color: green;
+    float:left;
+    overflow: auto;
+    background-color: black;
+    width: 550px; 
+    height: 300px;
+    display: flex;
+    flex-direction: column-reverse;
+    /* justify-content: center;
+    align-items: center; */
+    align-content: flex-end;
+  }
+</style>
+
+
 <body>
-    <h1> RENDER THE STREAMS!!! </h1>
-    <ul id="messages"></ul>
-    <button id = 'stop'>click me</button>
-    <div>
-        <canvas id="myChart"></canvas>
+    <h1> KafkaSocks </h1>
+    <div class="container">
+      <div class="terminal-container">
+        <ul id="messages"></ul>
+      </div>
+      <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+        <canvas id="myChart" ></canvas>
+      </div>
     </div>
-    <p>
-        <button id="randomizeData">Randomize Data</button>
-        <button id="addDataset">Add Dataset</button>
-        <button id="removeDataset">Remove Dataset</button>
-        <button id="addData">Add Data</button>
-    </p>
     <script src="/socket.io/socket.io.js"></script>
     
     <script>
@@ -50,7 +80,7 @@
          messages.appendChild(item);
          array.push(objMsg)
          //setInterval(() => array.push(objMsg), 1000)
-         window.scrollTo(0, document.body.scrollHeight);
+        //  window.scrollTo(0, document.body.scrollHeight);
          
      });
 
@@ -69,7 +99,7 @@ function onRefresh(chart) {
         yData= array[index].average_rpm;
         index++;
     }
-    else yData = 1000;
+    else yData = 0;
     
     console.log(yData)
   var now = Date.now();
@@ -101,14 +131,14 @@ var config = {
         realtime: {
           duration: 20000,
           refresh: 1000,
-          delay: 2000,
+          delay: 1000,
           onRefresh: onRefresh
         }
       },
       y: {
         title: {
           display: true,
-          text: 'value'
+          text: 'Average RPM'
         }
       }
     },
@@ -118,9 +148,11 @@ var config = {
     plugins: {
       title: {
         display: true,
-        text: 'Line chart (hotizontal scroll) sample'
+        text: 'Truck Average RPM'
       }
-    }
+    },
+    responsive: true,
+    maintainAspectRatio: false
   }
 };
 
@@ -129,6 +161,8 @@ window.onload = function() {
   window.myChart = new Chart(ctx, config);
 };
 
+// chart.canvas.parentNode.style.height = '528px';
+// chart.canvas.parentNode.style.width = '528px';
 // document.getElementById('randomizeData').addEventListener('click', function() {
 //   config.data.datasets.forEach(function(dataset) {
 //     dataset.data.forEach(function(dataObj) {
