@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
     //below production mode is not being used as of 2:30pm 5/19.  
   mode: 'development',
-  entry: './index.tsx',
+  entry: './client/index.tsx',
    
   module: {
     rules: [
