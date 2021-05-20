@@ -10,13 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
     "dotenv": "^9.0.2",
     "express": "^4.17.1",
     "kafkajs": "^1.15.0",
-    "socket.io": "^4.1.1",
-    "typescript": "^4.2.4",
-    "@material-ui/core": "^4.11.3",
-    "@material-ui/icons": "^4.11.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-router-dom": "^5.2.0",
@@ -27,9 +25,10 @@
     "regenerator-runtime": "^0.13.7",
     "request": "^2.88.2",
     "set-interval": "^2.1.2",
+    "socket.io": "^4.1.1",
+    "typescript": "^4.2.4",
     "ts-loader": "^9.1.2",
-    "ts-node": "^9.1.1",
-    "typescript": "^3.0.0"
+    "ts-node": "^9.1.1"
   },
   "devDependencies": {
     "@types/node": "^15.3.0"
