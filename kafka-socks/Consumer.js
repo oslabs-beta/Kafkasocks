@@ -45,6 +45,7 @@ var Consumer = /** @class */ (function () {
         this.consumer = consumer; //
         this.topic = topic;
         this.event = event;
+        console.log('constructing Consumer()');
     }
     // instantiate the Kafka consumer on the passed topic and subscribe with that consumer
     Consumer.prototype.run = function (namespace) {
@@ -66,13 +67,10 @@ var Consumer = /** @class */ (function () {
                         _a.sent();
                         console.log('consumer has subscribed to topic: ', this.topic);
                         return [4 /*yield*/, this.consumer.run({
-                                eachMessage: function (eventInfo) { return __awaiter(_this, void 0, void 0, function () {
-                                    return __generator(this, function (_a) {
-                                        namespace.emit(this.event, eventInfo.message.value.toString());
-                                        console.log("received Message from kafka", JSON.parse(eventInfo.message.value.toString()));
-                                        return [2 /*return*/];
-                                    });
-                                }); }
+                                eachMessage: function (eventInfo) {
+                                    namespace.emit(_this.event, eventInfo.message.value.toString());
+                                    console.log("received Message from kafka", JSON.parse(eventInfo.message.value.toString()));
+                                }
                             })];
                     case 3:
                         _a.sent();
