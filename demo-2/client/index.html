@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/luxon@1.26.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@1.0.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-streaming@2.0.0-beta.2"></script>
-    <title>Document</title>
+    <title>Kafka-socks</title>
   </head>
   <style>
     body {
@@ -32,8 +32,8 @@
       float: left;
       overflow: auto;
       background-color: black;
-      width: 550px;
-      height: 300px;
+      width: 700px;
+      height: 350px;
       display: flex;
       flex-direction: column-reverse;
       /* justify-content: center;
@@ -43,10 +43,10 @@
   </style>
 
   <body>
-    <h1>KafkaSocks</h1>
+    <h1>Kafka-socks Downloads</h1>
     <div class="container">
       <div class="terminal-container">
-        <ul id="messages"></ul>
+        <ul id="messages" style="list-style-type:none"></ul>
       </div>
       <div
         class="chart-container"
@@ -98,7 +98,7 @@
       function onRefresh(chart) {
         let yData;
         if (array[index] !== undefined) {
-          yData = array[index].engine_temperature;
+          yData = array[index]['kafka-socks-downloads'];
           index++;
         } else yData = 0;
 
@@ -118,7 +118,7 @@
         data: {
           datasets: [
             {
-              label: "Dataset 1 (linear interpolation)",
+              label: "Downloads",
               backgroundColor: color(chartColors.red).alpha(0.5).rgbString(),
               borderColor: chartColors.red,
               fill: false,
@@ -142,7 +142,7 @@
             y: {
               title: {
                 display: true,
-                text: "Average Temperature",
+                text: "Downloads",
               },
             },
           },
@@ -152,7 +152,7 @@
           plugins: {
             title: {
               display: true,
-              text: "Truck Engine Temperature",
+              text: "Kafka-socks Downloads",
             },
           },
           responsive: true,
