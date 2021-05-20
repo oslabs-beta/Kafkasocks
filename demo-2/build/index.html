@@ -7,7 +7,26 @@
     <title>Document</title>
   <script defer src="bundle.js"></script></head>
   <body>
-    this is the body of the html
-    does this update too?
+    <ul id="messages"></ul>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+      // const socket = io();
+      // const socket = io('http://localhost:3000');
+      // const socket = io.connect('http://localhost:8000', {resource: '/socket.io/socket.io'});
+      // const truckSocket = io("/trucks");
+
+      // const truckSocket = io.connect();
+      const truckSocket = io.connect("http://localhost:3000");
+      const messages = document.getElementById("messages");
+      truckSocket.on("Jasons-new-message", function (msg) {
+        const item = document.createElement("li");
+        item.textContent = msg;
+        messages.appendChild(item);
+        window.scrollTo(0, document.body.scrollHeight);
+      });
+    </script>
+
+    this is the body of the html does this update too?
   </body>
 </html>
