@@ -4,13 +4,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.2.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@1.26.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@1.0.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-streaming@2.0.0-beta.2"></script>
     <title>Document</title>
 </head>
+<style>
+  body {
+    background-color: linen;
+  }
+  h1 {
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: center;
+    align-items: center;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+  .terminal-container {
+    color: green;
+    float:left;
+    overflow: auto;
+    background-color: black;
+    width: 550px; 
+    height: 300px;
+    display: flex;
+    flex-direction: column-reverse;
+    /* justify-content: center;
+    align-items: center; */
+    align-content: flex-end;
+  }
+</style>
+
+
 <body>
-    <h1> RENDER THE STREAMS!!! </h1>
-    <ul id="messages"></ul>
-    <button id = 'stop'>click me</button>
+    <h1> KafkaSocks </h1>
+    <div class="container">
+      <div class="terminal-container">
+        <ul id="messages"></ul>
+      </div>
+      <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+        <canvas id="myChart" ></canvas>
+      </div>
+    </div>
     <script src="/socket.io/socket.io.js"></script>
+    
     <script>
         const socket = io(); 
      
@@ -25,12 +69,134 @@
     //          truckSocket.emit('pause');
     //     }) 
 
+    const array = [];
+    let index = 0;
+    
      truckSocket.on('truck message', function(msg) {
          const item = document.createElement('li');
+         const objMsg = JSON.parse(msg)
+         console.log(typeof objMsg)
          item.textContent = msg;
          messages.appendChild(item);
-         window.scrollTo(0, document.body.scrollHeight);
+         array.push(objMsg)
+         //setInterval(() => array.push(objMsg), 1000)
+        //  window.scrollTo(0, document.body.scrollHeight);
+         
      });
+
+     var chartColors = {
+  red: 'rgb(255, 99, 132)',
+};
+
+// function randomScalingFactor() {
+//   return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
+// }
+console.log(array)
+function onRefresh(chart) {
+
+    let yData;
+    if(array[index]!==undefined) {
+        yData= array[index].average_rpm;
+        index++;
+    }
+    else yData = 0;
+    
+    console.log(yData)
+  var now = Date.now();
+  chart.data.datasets.forEach(function(dataset) {
+    dataset.data.push({
+      x: now,
+      y: yData
+    });
+  });
+}
+
+var color = Chart.helpers.color;
+var config = {
+  type: 'line',
+  data: {
+    datasets: [{
+      label: 'Dataset 1 (linear interpolation)',
+      backgroundColor: color(chartColors.red).alpha(0.5).rgbString(),
+      borderColor: chartColors.red,
+      fill: false,
+      borderDash: [8, 4],
+      data: []
+    }]
+  },
+  options: {
+    scales: {
+      x: {
+        type: 'realtime',
+        realtime: {
+          duration: 20000,
+          refresh: 1000,
+          delay: 1000,
+          onRefresh: onRefresh
+        }
+      },
+      y: {
+        title: {
+          display: true,
+          text: 'Average RPM'
+        }
+      }
+    },
+    interaction: {
+      intersect: false
+    },
+    plugins: {
+      title: {
+        display: true,
+        text: 'Truck Average RPM'
+      }
+    },
+    responsive: true,
+    maintainAspectRatio: false
+  }
+};
+
+window.onload = function() {
+  var ctx = document.getElementById('myChart').getContext('2d');
+  window.myChart = new Chart(ctx, config);
+};
+
+// chart.canvas.parentNode.style.height = '528px';
+// chart.canvas.parentNode.style.width = '528px';
+// document.getElementById('randomizeData').addEventListener('click', function() {
+//   config.data.datasets.forEach(function(dataset) {
+//     dataset.data.forEach(function(dataObj) {
+//       dataObj.y = randomScalingFactor();
+//     });
+//   });
+//   window.myChart.update();
+// });
+
+// var colorNames = Object.keys(chartColors);
+// document.getElementById('addDataset').addEventListener('click', function() {
+//   var colorName = colorNames[config.data.datasets.length % colorNames.length];
+//   var newColor = chartColors[colorName];
+//   var newDataset = {
+//     label: 'Dataset ' + (config.data.datasets.length + 1),
+//     backgroundColor: color(newColor).alpha(0.5).rgbString(),
+//     borderColor: newColor,
+//     fill: false,
+//     data: []
+//   };
+
+//   config.data.datasets.push(newDataset);
+//   window.myChart.update();
+// });
+
+// document.getElementById('removeDataset').addEventListener('click', function() {
+//   config.data.datasets.pop();
+//   window.myChart.update();
+// });
+
+// document.getElementById('addData').addEventListener('click', function() {
+//   onRefresh(window.myChart);
+//   window.myChart.update();
+// });
     </script>
 </body>
 </html>
