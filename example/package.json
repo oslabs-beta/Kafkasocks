@@ -26,15 +26,9 @@
     "request": "^2.88.2",
     "set-interval": "^2.1.2",
     "socket.io": "^4.1.1",
-<<<<<<< HEAD
-    "ts-loader": "^9.1.2",
-    "ts-node": "^9.1.1",
-    "typescript": "^3.0.0"
-=======
     "typescript": "^4.2.4",
     "ts-loader": "^9.1.2",
     "ts-node": "^9.1.1"
->>>>>>> 585729e33ad014c5446db555392d44ce435f94ed
   },
   "devDependencies": {
     "@types/node": "^15.3.0"
