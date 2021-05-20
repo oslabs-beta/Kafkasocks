@@ -7,7 +7,8 @@
     "__test__": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "start": "ts-node ./server.ts",
-    "dev": "cross-env NODE_ENV=development webpack serve --open && nodemon server/server.ts"
+    "__dev-mac-only__": "cross-env NODE_ENV=development webpack serve --open && NODE_ENV=development nodemon server/server.ts",
+    "dev": "concurrently \"cross-env NODE_ENV=development webpack serve --open\" \"cross-env NODE_ENV=development nodemon server/server.ts\""
   },
   "dependencies": {
     "express": "^4.17.1",
@@ -23,6 +24,7 @@
     "@babel/preset-react": "^7.13.13",
     "@babel/preset-typescript": "^7.13.0",
     "babel-loader": "^8.2.2",
+    "concurrently": "^6.1.0",
     "cross-env": "^7.0.3",
     "ts-loader": "^9.2.1",
     "typescript": "^4.2.4",
