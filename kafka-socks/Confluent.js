@@ -1,9 +1,7 @@
 "use strict";
-// console.log('hello world');
 exports.__esModule = true;
 exports.Confluent = void 0;
 var Kafka = require('kafkajs').Kafka;
-// const Kafka = require...
 // Confluent class instantiates the connection Confluent Kafka cluster
 var Confluent = /** @class */ (function () {
     // key is the Confluent cloud API key
@@ -15,10 +13,6 @@ var Confluent = /** @class */ (function () {
         this.server = server;
     }
     // create will return a Kafka Consumer object
-    // TODO:  look into more specific object typing
-    //        i.e., in this case we may want to be specific
-    //        that the object we are expecting is
-    //        an instance of the Confluent Kafka client
     Confluent.prototype.create = function (client) {
         var sasl = this.key && this.secret
             ? { username: this.key, password: this.secret, mechanism: "plain" }
