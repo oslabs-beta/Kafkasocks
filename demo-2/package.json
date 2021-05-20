@@ -7,10 +7,12 @@
     "__test__": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "start": "ts-node ./server/server.ts",
+    "go": "npm run build && npm start",
     "__dev-mac-only__": "cross-env NODE_ENV=development webpack serve --open && NODE_ENV=development nodemon server/server.ts",
     "dev": "concurrently \"cross-env NODE_ENV=development webpack serve --open\" \"cross-env NODE_ENV=development nodemon server/server.ts\""
   },
   "dependencies": {
+    "dotenv": "^9.0.2",
     "express": "^4.17.1",
     "html-webpack-plugin": "^5.3.1",
     "node": "^16.1.0",
