@@ -61,7 +61,7 @@ producer
         ],
       });
       console.log("message sent");
-    }, 1000);
+    }, 100);
   })
   // .then(() => console.log("message sent"))
   .catch((err: Error) => {
@@ -76,7 +76,7 @@ const consumer = kafka.consumer({ groupId: "group-id" });
 const kafkasockClient = new Consumer(
   consumer,
   "Allison-and-Jason-Be-Debuggin",
-  "Jasons-new-message"
+  "truck message"
 );
 const subject = new Subject(io, "trucks");
 subject.add(kafkasockClient);

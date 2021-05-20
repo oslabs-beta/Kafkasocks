@@ -9,7 +9,7 @@
     "start": "ts-node ./server/server.ts",
     "go": "npm run build && npm start",
     "__dev-mac-only__": "cross-env NODE_ENV=development webpack serve --open && NODE_ENV=development nodemon server/server.ts",
-    "dev": "concurrently \"cross-env NODE_ENV=development webpack serve --open\" \"cross-env NODE_ENV=development nodemon server/server.ts\""
+    "dev": "concurrently \"cross-env NODE_ENV=development webpack serve --open\" \"nodemon server/server.ts\""
   },
   "dependencies": {
     "cors": "^2.8.5",
