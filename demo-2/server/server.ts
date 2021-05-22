@@ -43,6 +43,10 @@ const kafka: { producer: Function; consumer: Function } = new Confluent(
   KAFKA_BOOTSTRAP_SERVER
 ).create("client-id");
 
+const randomizer = (hi: number, lo: number = 0) => {
+  return Math.floor(Math.random() * (hi + 1 - lo) + Math.floor(lo));
+};
+
 const producer = kafka.producer();
 producer
   .connect()
@@ -54,9 +58,9 @@ producer
           // { key: "some-key", value: Math.floor(Math.random() * 9).toString() },
           {
             key: "some-key",
-            value: `{"truck_id":"1","engine_temperature":${(
-              Math.floor(Math.random() * 70) + 170
-            ).toString()},"average_rpm":2000}`,
+            value: `{"source":"www.npmjs.com","kafka-socks-downloads":${randomizer(
+              20
+            ).toString()},"average-download-speed":${randomizer(2000, 1000)}}`,
           },
         ],
       });

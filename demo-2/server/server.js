@@ -32,7 +32,7 @@ producer
             topic: "Allison-and-Jason-Be-Debuggin",
             messages: [
                 // { key: "some-key", value: Math.floor(Math.random() * 9).toString() },
-                { key: 'some-key', value: "{\"truck_id\":\"1\",\"engine_temperature\":" + (Math.floor(Math.random() * 70) + 170).toString() + ",\"average_rpm\":2000}" }
+                { key: 'some-key', value: "{\"source\":\"1\",\"kafka-socks-downloads\":" + (Math.floor(Math.random() * 70) + 170).toString() + ",\"average-download-speed\":2000}" }
             ]
         });
         console.log('message sent');
