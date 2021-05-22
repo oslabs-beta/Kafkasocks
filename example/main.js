@@ -35,11 +35,11 @@ trucks_subject.connect();
 //   console.log(error);
 //   process.exit(1);
 // })
-//     const consumer = kafka.consumer({
-//       groupId: 'truck-group'
-//     })
-//     const consumer_run = new Consumer(consumer, process.env.TOPIC, 'truck message', io)
-//     consumer_run.run()
+// const consumer = kafka.consumer({
+//   groupId: 'truck-group'
+// })
+// const consumer_run = new Consumer(consumer, process.env.TOPIC, 'truck message', io)
+// consumer_run.run()
 //   })
 //   .catch(async error => {
 //     console.error(error)

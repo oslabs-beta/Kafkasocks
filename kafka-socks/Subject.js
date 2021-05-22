@@ -37,10 +37,10 @@ var Subject = /** @class */ (function () {
             console.log("in namespace.on cb");
             _this.consumerArr.forEach(function (consumer) {
                 consumer.run(_this.namespace);
-                socket.on('disconnect', function () {
-                    console.log('disconnecting');
-                    consumer.close().then(function () { return console.log('disconnected'); });
-                });
+                // socket.on('disconnect', () => {
+                //   console.log('disconnecting');
+                //   consumer.disconnect().then(() => console.log('disconnected'));
+                // });
             });
         });
     };

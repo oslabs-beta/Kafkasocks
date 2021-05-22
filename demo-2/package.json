@@ -2,7 +2,7 @@
   "name": "demo",
   "version": "1.0.0",
   "description": "",
-  "main": "/server/server.js",
+  "main": "/client/index.tsx",
   "scripts": {
     "__test__": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
@@ -19,6 +19,7 @@
     "html-webpack-plugin": "^5.3.1",
     "node": "^16.1.0",
     "node-gyp": "^8.0.0",
+    "nodemon": "^2.0.7",
     "path": "^0.12.7",
     "peer": "^0.6.1",
     "react": "^17.0.2",

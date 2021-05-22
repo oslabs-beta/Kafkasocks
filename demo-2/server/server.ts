@@ -21,8 +21,8 @@ const PORT = 3333;
 
 //prior to bringing this in from .env file, we continually received the "split of"
 // const { API_KEY: string, API_SECRET: string, KAFKA_BOOTSTRAP_SERVER: string } = process.env;
-const API_KEY = "627KSIUAZIGQZGPV";
-const API_SECRET = `mCC5bCFnkt0xazTV2tOznu2blVjuzdCzgT5eJKTjQr4SkYjZpmrMcoV2WpmIEPkC`;
+const API_KEY = "PS5UR5WJMR3M4IUK";
+const API_SECRET = `sViLnhxYPSZzirnBznMVHxRoQbvltcpmOJjlvnuv0f+SW138XyA1ZmO/kp7K87sg`;
 const KAFKA_BOOTSTRAP_SERVER = `pkc-lzvrd.us-west4.gcp.confluent.cloud:9092`;
 
 // app.use("/", (req: {}, res: {}) => {
@@ -53,7 +53,7 @@ producer
   .then(() => {
     setInterval(() => {
       producer.send({
-        topic: "Kafkasocks_downloads",
+        topic: "Socks",
         messages: [
           // { key: "some-key", value: Math.floor(Math.random() * 9).toString() },
           {
@@ -65,7 +65,7 @@ producer
         ],
       });
       console.log("message sent");
-    }, 100);
+    }, 1000);
   })
   // .then(() => console.log("message sent"))
   .catch((err: Error) => {
@@ -76,10 +76,10 @@ producer
 // 2. create a kafkasocks instance to:
 // a. consume produced messages and
 // b. emit them on socket
-const consumer = kafka.consumer({ groupId: "group-id" });
+const consumer = kafka.consumer({ groupId: "group-id" })
 const kafkasockClient = new Consumer(
   consumer,
-  "Kafkasocks_downloads",
+  "Socks",
   "new download"
 );
 const subject = new Subject(io, "trucks");

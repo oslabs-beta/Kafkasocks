@@ -29,7 +29,8 @@ module.exports = {
     contentBase: './build',
     port: 8000,
     proxy: {
-      '/': 'http://localhost:3333'
+      '*': 'http://[::1]:3333',
+      changeOrigin: true,
     }
   },
   plugins: [
