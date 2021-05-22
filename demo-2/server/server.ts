@@ -17,13 +17,13 @@ import Subject from "./../../kafka-socks/Subject";
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
-const PORT = 3000;
+const PORT = 3333;
 
 //prior to bringing this in from .env file, we continually received the "split of"
 // const { API_KEY: string, API_SECRET: string, KAFKA_BOOTSTRAP_SERVER: string } = process.env;
-const API_KEY = "TS5O26XUTAOKGJ3Y";
-const API_SECRET = `UiDwMizJ05+plVsGIS8ChoSTpHVsbs+qXakJ6/rbAX5DQtgOITUdqJoNF13Pinuu`;
-const KAFKA_BOOTSTRAP_SERVER = `pkc-ep9mm.us-east-2.aws.confluent.cloud:9092`;
+const API_KEY = "627KSIUAZIGQZGPV";
+const API_SECRET = `mCC5bCFnkt0xazTV2tOznu2blVjuzdCzgT5eJKTjQr4SkYjZpmrMcoV2WpmIEPkC`;
+const KAFKA_BOOTSTRAP_SERVER = `pkc-lzvrd.us-west4.gcp.confluent.cloud:9092`;
 
 // app.use("/", (req: {}, res: {}) => {
 //   express.static(path.join(__dirname, "./../client/"));
@@ -43,20 +43,24 @@ const kafka: { producer: Function; consumer: Function } = new Confluent(
   KAFKA_BOOTSTRAP_SERVER
 ).create("client-id");
 
+const randomizer = (hi: number, lo: number = 0) => {
+  return Math.floor(Math.random() * (hi + 1 - lo) + Math.floor(lo));
+};
+
 const producer = kafka.producer();
 producer
   .connect()
   .then(() => {
     setInterval(() => {
       producer.send({
-        topic: "Allison-and-Jason-Be-Debuggin",
+        topic: "Kafkasocks_downloads",
         messages: [
           // { key: "some-key", value: Math.floor(Math.random() * 9).toString() },
           {
             key: "some-key",
-            value: `{"truck_id":"1","engine_temperature":${(
-              Math.floor(Math.random() * 70) + 170
-            ).toString()},"average_rpm":2000}`,
+            value: `{"source":"www.npmjs.com","kafka-socks-downloads":${randomizer(
+              20
+            ).toString()},"average-download-speed":${randomizer(2000, 1000)}}`,
           },
         ],
       });
@@ -75,11 +79,11 @@ producer
 const consumer = kafka.consumer({ groupId: "group-id" });
 const kafkasockClient = new Consumer(
   consumer,
-  "Allison-and-Jason-Be-Debuggin",
-  "truck message"
+  "Kafkasocks_downloads",
+  "new download"
 );
 const subject = new Subject(io, "trucks");
 subject.add(kafkasockClient);
 subject.connect();
 
-server.listen(PORT, () => console.log("listening on port 3000"));
+server.listen(PORT, () => console.log("listening on port 3333"));
