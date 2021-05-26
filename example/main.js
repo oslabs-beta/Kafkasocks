@@ -1,38 +1,44 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const producer_1 = require("./producer");
-const kafka_1 = require("./kafka");
-const Consumer_1 = __importDefault(require("../kafka-socks/Consumer"));
-const Subject_1 = __importDefault(require("../kafka-socks/Subject"));
+exports.__esModule = true;
+var producer_1 = require("./producer");
+var kafka_1 = require("./kafka");
+var Consumer_1 = require("../kafka-socks/Consumer");
+var Subject_1 = require("../kafka-socks/Subject");
 require('dotenv').config();
-const express = require('express');
-const port = process.env.PORT;
-const app = express();
-const http = require('http');
-const server = http.createServer(app);
-const { Server } = require('socket.io');
-const io = new Server(server);
-const path = require('path');
-app.get('/', (req, res) => {
+var express = require('express');
+var port = process.env.PORT;
+var app = express();
+var http = require('http');
+var server = http.createServer(app);
+var Server = require('socket.io').Server;
+var io = new Server(server);
+var path = require('path');
+app.get('/', function (req, res) {
     res.sendFile(__dirname + '/chart.html');
 });
 // in the html we do this
 //socket.emit('consumer', consumer)
 //io.on('consumer' (socket, consumer))
-producer_1.produce().catch((error) => {
+producer_1.produce()["catch"](function (error) {
     console.log(error);
     process.exit(1);
 });
-const consumer = kafka_1.kafka.consumer({
-    groupId: 'truck-group'
+var kafkaconsumer_1 = kafka_1.kafka.consumer({
+    groupId: 'truck-group-1'
 });
-const consumer_run = new Consumer_1.default(consumer, process.env.TOPIC, 'truck message');
-const trucks_subject = new Subject_1.default(io, 'trucks');
-trucks_subject.add(consumer_run);
-trucks_subject.connect();
+var kafkaconsumer_2 = kafka_1.kafka.consumer({
+    groupId: 'truck-group-2'
+});
+var consumer_1 = new Consumer_1["default"](kafkaconsumer_1, 'trucks-topic-1', "truck message-1"); //
+var consumer_2 = new Consumer_1["default"](kafkaconsumer_2, 'trucks-topic-2', 'truck message-2');
+var trucks_subject = new Subject_1["default"](io, 'trucks');
+trucks_subject.add(consumer_1);
+trucks_subject.add(consumer_2);
+//wrap connect in an event listener of sorts
+app.get('/consume', function (req, res) {
+    trucks_subject.connect();
+    return res.send({ message: 'works!' });
+});
 // io.on('connection', socket => {
 //   produce().catch(error => {
 //   console.log(error);
@@ -98,8 +104,8 @@ trucks_subject.connect();
 // })
 //   })
 // consume method that connects, subscribes to a topic and consumes messages from that topic
-server.listen(port, () => {
-    console.log(`Listening on port ${server.address().port}`);
+server.listen(port, function () {
+    console.log("Listening on port " + server.address().port);
 });
 require('dotenv').config();
 // // running the server

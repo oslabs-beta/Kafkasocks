@@ -26,17 +26,24 @@ produce().catch((error: any) => {
   process.exit(1);
 })
 
-const consumer = kafka.consumer({
-  groupId: 'truck-group'
+const kafkaconsumer_1 = kafka.consumer({
+  groupId: 'truck-group-1'
+})
+const kafkaconsumer_2 = kafka.consumer({
+  groupId: 'truck-group-2'
 })
 
 
-
-
-const consumer_run = new Consumer(consumer, process.env.TOPIC!, 'truck message')
+const consumer_1 = new Consumer(kafkaconsumer_1, 'trucks-topic-1', `truck message-1`) //
+const consumer_2 = new Consumer(kafkaconsumer_2, 'trucks-topic-2', 'truck message-2')
 const trucks_subject = new Subject(io, 'trucks')
-trucks_subject.add(consumer_run)
-trucks_subject.connect()
+trucks_subject.add(consumer_1)
+trucks_subject.add(consumer_2)
+//wrap connect in an event listener of sorts
+app.get('/consume', (req: any, res : any) => {
+  trucks_subject.connect()
+  return res.send({message : 'works!'})
+})
 // io.on('connection', socket => {
   
 

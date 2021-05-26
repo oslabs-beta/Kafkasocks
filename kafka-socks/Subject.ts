@@ -34,6 +34,7 @@ class Subject {
   connect() {
     console.log("in Subject.connect()");
     this.namespace.on("connection", (socket: any) => {
+      console.log('in the namespace connection')
       // we need the socket to be listening to the event here
       // there is no socket.on('this.event')
 
