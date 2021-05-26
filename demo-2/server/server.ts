@@ -21,9 +21,9 @@ const PORT = 3000;
 
 //prior to bringing this in from .env file, we continually received the "split of"
 // const { API_KEY: string, API_SECRET: string, KAFKA_BOOTSTRAP_SERVER: string } = process.env;
-const API_KEY = "TS5O26XUTAOKGJ3Y";
-const API_SECRET = `UiDwMizJ05+plVsGIS8ChoSTpHVsbs+qXakJ6/rbAX5DQtgOITUdqJoNF13Pinuu`;
-const KAFKA_BOOTSTRAP_SERVER = `pkc-ep9mm.us-east-2.aws.confluent.cloud:9092`;
+const API_KEY = "ZEI4T6VTYQKEEQAB";
+const API_SECRET = `Hz/Q1mCuSQKmPiz2eS8ZOna7D5S+MuxtLDnamPWHsriWAeWYEx1JXIodVZZ1l2kw`;
+const KAFKA_BOOTSTRAP_SERVER = `pkc-lzvrd.us-west4.gcp.confluent.cloud:9092`;
 
 // app.use("/", (req: {}, res: {}) => {
 //   express.static(path.join(__dirname, "./../client/"));
@@ -53,7 +53,7 @@ producer
   .then(() => {
     setInterval(() => {
       producer.send({
-        topic: "Allison-and-Jason-Be-Debuggin",
+        topic: "truck-topic",
         messages: [
           // { key: "some-key", value: Math.floor(Math.random() * 9).toString() },
           {
@@ -79,7 +79,7 @@ producer
 const consumer = kafka.consumer({ groupId: "group-id" });
 const kafkasockClient = new Consumer(
   consumer,
-  "Allison-and-Jason-Be-Debuggin",
+  "truck-topic",
   "truck message"
 );
 const subject = new Subject(io, "trucks");
