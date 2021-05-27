@@ -29,6 +29,7 @@ var kafkaconsumer_1 = kafka_1.kafka.consumer({
 var kafkaconsumer_2 = kafka_1.kafka.consumer({
     groupId: 'truck-group-2'
 });
+//const consumer_1 = new Consumer(kafkaconsumer_1, 'trucks-topic-1'<--related to Kafka (what topic should the consumer subscribe to), `truck message-1`<-- socketio (what event should it emit)) //
 var consumer_1 = new Consumer_1["default"](kafkaconsumer_1, 'trucks-topic-1', "truck message-1"); //
 var consumer_2 = new Consumer_1["default"](kafkaconsumer_2, 'trucks-topic-2', 'truck message-2');
 var trucks_subject = new Subject_1["default"](io, 'trucks');
@@ -38,6 +39,14 @@ trucks_subject.add(consumer_2);
 app.get('/consume', function (req, res) {
     trucks_subject.connect();
     return res.send({ message: 'works!' });
+});
+app.get('/pause', function (req, res) {
+    console.log('in the middleware for pause');
+    trucks_subject.pause();
+});
+app.get('/resume', function (req, res) {
+    console.log('in the middleware for resume');
+    trucks_subject.resume();
 });
 // io.on('connection', socket => {
 //   produce().catch(error => {

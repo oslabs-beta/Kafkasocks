@@ -28,7 +28,24 @@ class Subject {
     console.log("in Subject.add");
     this.consumerArr.push(consumer);
   }
+  pause() {
+    this.consumerArr.forEach((consumer: any) => {
+      consumer.pauser();
 
+      // socket.on('disconnect', () => {
+      //   console.log('disconnecting');
+      //   consumer.disconnect().then(() => console.log('disconnected'));
+      // });
+    })
+  }
+
+  resume() {
+    console.log('in resume inside Subject.ts')
+    this.consumerArr.forEach((consumer: any) => {
+
+      consumer.resumer(this.namespace);
+    })
+  }
   // opening the io server
   // invoke the running of the sockets corresponding to the varoius consumerArr in our consumerArr array
   connect() {

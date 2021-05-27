@@ -41,18 +41,69 @@ var Consumer = /** @class */ (function () {
     // consumer is a Kafka consumer object
     // topic is the Kafka object's topic
     // event is the socket.io event on which the kafka message is being passed
-    function Consumer(consumer, topic, event) {
+    function Consumer(consumer, topic, event, pause, resume, isConsuming) {
+        if (pause === void 0) { pause = false; }
+        if (resume === void 0) { resume = false; }
+        if (isConsuming === void 0) { isConsuming = false; }
         this.consumer = consumer; //
         this.topic = topic;
         this.event = event;
+        this.pause = pause;
+        this.resume = resume;
+        this.isConsuming = isConsuming;
     }
+    Consumer.prototype.pauser = function () {
+        console.log('in pauser method');
+        this.pause = true;
+    };
+    Consumer.prototype.resumer = function (namespace) {
+        console.log('in resume method');
+        // this.pause = false;
+        this.resume = true;
+        this.consumer.resume([{ topic: this.topic }]);
+        // this.runAfterResume(namespace);
+        console.log('this.pause should be false here inside resumer(): ', this.pause);
+        console.log('this.resume should be true for here inside resumer(): ', this.resume);
+    };
     // instantiate the Kafka consumer on the passed topic and subscribe with that consumer
+    Consumer.prototype.runAfterResume = function (namespace) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.consumer.run({
+                            eachMessage: function (eventInfo) { return __awaiter(_this, void 0, void 0, function () {
+                                return __generator(this, function (_a) {
+                                    //listening for a pause event
+                                    if (this.pause) {
+                                        this.consumer.pause([{ topic: this.topic }]);
+                                        //setTimeout(() => this.consumer.resume([{topic: this.topic}]), 10000)
+                                    }
+                                    // else if(this.resume) {
+                                    //   console.log('in Consumer.ts after resume is set to true :', this.resume)
+                                    //   this.consumer.resume([{topic: this.topic}]);
+                                    //   this.resume = false;
+                                    // }
+                                    namespace.emit(this.event, eventInfo.message.value.toString());
+                                    console.log("received Message from kafka", JSON.parse(eventInfo.message.value.toString()));
+                                    return [2 /*return*/];
+                                });
+                            }); }
+                        })];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
     Consumer.prototype.run = function (namespace) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        console.log('seeing if we need to compile');
                         console.log("consumer is about to run");
                         return [4 /*yield*/, this.consumer.connect()];
                     case 1:
@@ -65,9 +116,26 @@ var Consumer = /** @class */ (function () {
                     case 2:
                         _a.sent();
                         console.log("consumer has subscribed to topic: ", this.topic);
+                        this.isConsuming = true;
                         return [4 /*yield*/, this.consumer.run({
                                 eachMessage: function (eventInfo) { return __awaiter(_this, void 0, void 0, function () {
                                     return __generator(this, function (_a) {
+                                        //listening for a pause event
+                                        if (this.pause) {
+                                            if (this.resume) {
+                                                console.log('inside nested resume in if(this.pause)');
+                                                console.log('this.resume: ', this.resume);
+                                            }
+                                            else {
+                                                this.consumer.pause([{ topic: this.topic }]);
+                                            }
+                                            //setTimeout(() => this.consumer.resume([{topic: this.topic}]), 10000)
+                                        }
+                                        // else if(this.resume) {
+                                        //   console.log('in Consumer.ts after resume is set to true :', this.resume)
+                                        //   this.consumer.resume([{topic: this.topic}]);
+                                        //   this.resume = false;
+                                        // }
                                         namespace.emit(this.event, eventInfo.message.value.toString());
                                         console.log("received Message from kafka", JSON.parse(eventInfo.message.value.toString()));
                                         return [2 /*return*/];

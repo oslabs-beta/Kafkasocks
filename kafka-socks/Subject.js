@@ -23,6 +23,22 @@ var Subject = /** @class */ (function () {
         console.log("in Subject.add");
         this.consumerArr.push(consumer);
     };
+    Subject.prototype.pause = function () {
+        this.consumerArr.forEach(function (consumer) {
+            consumer.pauser();
+            // socket.on('disconnect', () => {
+            //   console.log('disconnecting');
+            //   consumer.disconnect().then(() => console.log('disconnected'));
+            // });
+        });
+    };
+    Subject.prototype.resume = function () {
+        var _this = this;
+        console.log('in resume inside Subject.ts');
+        this.consumerArr.forEach(function (consumer) {
+            consumer.resumer(_this.namespace);
+        });
+    };
     // opening the io server
     // invoke the running of the sockets corresponding to the varoius consumerArr in our consumerArr array
     Subject.prototype.connect = function () {

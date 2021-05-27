@@ -53,6 +53,8 @@
         <canvas id="myChart" ></canvas>
       </div>
       <button type="button" id="consume-button">Click Me to Start Consuming!</button>
+      <button type="button" id="pause-button">Pause Me!</button>
+      <button type="button" id="resume-button">Resume Me!</button>
     </div>
     <script src="/socket.io/socket.io.js"></script>
     
@@ -86,15 +88,26 @@
     //     //  window.scrollTo(0, document.body.scrollHeight);
          
     //  });
+    let truckSocket;
+    
+    const pauseButton = document.getElementById('pause-button');
+    pauseButton.addEventListener('click', ()=> {
+      fetch('http://localhost:3000/pause')
+    })
+    
+    const resumeButton = document.getElementById('resume-button');
+    resumeButton.addEventListener('click', () => {
+      fetch('http://localhost:3000/resume')  
+    })
 
-     const consumeButton = document.getElementById('consume-button')
-     consumeButton.addEventListener('click', () => {
-       fetch('http://localhost:3000/consume')
-        .then(response => response.json())
-        .then(data => {
-          console.log('response fine!')
-          const truckSocket = io('/trucks')
-            
+    const consumeButton = document.getElementById('consume-button')
+    consumeButton.addEventListener('click', () => {
+      fetch('http://localhost:3000/consume')
+      .then(response => response.json())
+      .then(data => {
+        console.log('response fine!')
+        
+        truckSocket = io('/trucks') // connection event
             truckSocket.on('truck message-1', function(msg) {
                 const item = document.createElement('li');
                 const objMsg = JSON.parse(msg)
