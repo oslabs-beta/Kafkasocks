@@ -17,7 +17,7 @@ import Subject from "./../../kafka-socks/Subject";
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
-const PORT = 3333;
+const PORT = 3001;
 
 //prior to bringing this in from .env file, we continually received the "split of"
 // const { API_KEY: string, API_SECRET: string, KAFKA_BOOTSTRAP_SERVER: string } = process.env;
@@ -86,4 +86,4 @@ const subject = new Subject(io, "trucks");
 subject.add(kafkasockClient);
 subject.connect();
 
-server.listen(PORT, () => console.log("listening on port 3333"));
+server.listen(PORT, () => console.log("listening on port 3001"));

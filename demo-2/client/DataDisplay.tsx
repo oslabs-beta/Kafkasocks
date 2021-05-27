@@ -2,9 +2,10 @@ import * as React from "react";
 import io from "socket.io-client";
 import { Line } from "react-chartjs-2";
 import "chartjs-plugin-streaming";
+import * as styles from './DataDisplay.css';
 
 //initiate websocket on port
-const socket = io("http://localhost:3333/trucks", {
+const socket = io("http://localhost:3001/trucks", {
   transports: ["websocket"],
   upgrade: false,
 });
@@ -55,7 +56,8 @@ const DataDisplay = ({}) => {
   };
 
   return (
-    <div className="chart-container">
+    <div>
+      <h1>Demo</h1>
       <h1>Kafkasocks Live Downloads</h1>
       <Line data={data} options={options} />
     </div>
@@ -63,7 +65,4 @@ const DataDisplay = ({}) => {
 };
 
 export default DataDisplay;
-// const newNode = document.createElement("div");
-// // newNode.textContent = 'some more text from the tsx';
 
-// document.body.append(newNode);
