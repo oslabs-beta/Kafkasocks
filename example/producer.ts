@@ -33,9 +33,10 @@ const produce = async () => {
             clearInterval(interval);
         }
         try {
-
+            const truck_num = JSON.parse(trucks[idx])["truck_id"]
+           // console.log(truck_num)
             const responses = await producer.send({
-                topic : process.env.TOPIC,
+                topic : `trucks-topic-${truck_num}`,
                 messages : [
                     {
                         key: String(idx),
