@@ -9,6 +9,20 @@
 
 /* //Primary color Gunmetal: 022B3A */
 
+.team {
+  display: flex;
+  align-content: center;
+  justify-content: space-evenly;
+  min-width: 6em;
+  padding: auto;
+}
+
+.getting-started {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
 /* :root {
   --ifm-color-primary: #022b3a;
   --ifm-color-primary-dark: #022734;
@@ -23,7 +37,7 @@
 
 /* //Primary color Metallic Seaweed: 1F7A8C */
 
-:root {
+/* :root {
   --ifm-color-primary: #1f7a8c;
   --ifm-color-primary-dark: #1c6e7e;
   --ifm-color-primary-darker: #1a6877;
@@ -31,12 +45,12 @@
   --ifm-color-primary-light: #22869a;
   --ifm-color-primary-lighter: #248ca1;
   --ifm-color-primary-lightest: #289fb6;
-}
+} */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 /* //Primary color Beau Blue: BFDBF7 */
 
-/* :root {
+:root {
   --ifm-color-primary: #BFDBF7;
   --ifm-color-primary-dark: #98c5f2	;
   --ifm-color-primary-darker: #85baf0	;
@@ -45,7 +59,7 @@
   --ifm-color-primary-lighter: #f9fcfe	;
   --ifm-color-primary-lightest: #ffffff;
   --ifm-code-font-size: 95%;
-} */
+}
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 

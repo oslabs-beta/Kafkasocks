@@ -3,12 +3,7 @@ const express = require("express");
 const http = require("http");
 const path = require("path");
 const { Server } = require("socket.io");
-// const { Server } = require("socket.io")(http, {
-//   cors: {
-//     origin: "http://localhost:8000",
-//     methods: ["GET", "POST"],
-//   },
-// });
+
 
 import Confluent from "./../../kafka-socks/Confluent";
 import Consumer from "./../../kafka-socks/Consumer";
@@ -25,9 +20,6 @@ const API_KEY = "PS5UR5WJMR3M4IUK";
 const API_SECRET = `sViLnhxYPSZzirnBznMVHxRoQbvltcpmOJjlvnuv0f+SW138XyA1ZmO/kp7K87sg`;
 const KAFKA_BOOTSTRAP_SERVER = `pkc-lzvrd.us-west4.gcp.confluent.cloud:9092`;
 
-// app.use("/", (req: {}, res: {}) => {
-//   express.static(path.join(__dirname, "./../client/"));
-// });
 
 app.use(require("cors")());
 

@@ -17,12 +17,7 @@ module.exports = {
         src: 'img/Kafkasocks-mini-logo.png',
       },
       items: [
-        {
-          type: 'doc',
-          docId: 'intro',
-          position: 'left',
-          label: 'Features',
-        },
+      
         {
           type: 'doc',
           docId: 'demo',
@@ -56,7 +51,7 @@ module.exports = {
           items: [
             {
               label: 'Tutorial',
-              to: '/docs/intro',
+              to: '/',
             },
           ],
         },
@@ -65,15 +60,15 @@ module.exports = {
           items: [
             {
               label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              href: '/',
             },
             {
               label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              href: '/',
             },
             {
               label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
+              href: '/',
             },
           ],
         },
@@ -82,7 +77,7 @@ module.exports = {
           items: [
             {
               label: 'Press',
-              to: '/blog',
+              to: '/',
             },
             {
               label: 'GitHub',
