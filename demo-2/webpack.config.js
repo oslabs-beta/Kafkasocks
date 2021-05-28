@@ -29,9 +29,9 @@ module.exports = {
     contentBase: './build',
     port: 8000,
     proxy: {
-      '*': 'http://[::1]:3000',
+      '*': 'http://[::1]:3333',
       changeOrigin: true,
-    },
+    }
   },
   plugins: [
     new HtmlWebpackPlugin({
