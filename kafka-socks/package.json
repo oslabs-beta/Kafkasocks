@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "ts-node Confluent Consumer Subject && npx jest --verbose true",
     "__run__": "tsc Kafkasocks.ts && node Kafkasocks.js"
   },
   "keywords": [],
@@ -12,10 +12,13 @@
   "license": "ISC",
   "dependencies": {
     "@types/node": "^15.3.0",
+    "dotenv": "^10.0.0",
     "kafkajs": "^1.15.0",
     "socket.io": "^4.1.2"
   },
   "devDependencies": {
+    "@types/jest": "^26.0.23",
+    "jest": "^27.0.1",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4"
   }
