@@ -15,6 +15,7 @@
 ``` npm install kafka-socks ```
 
 <h3 href="#Example">Example</h3>
+<h3 href="#Strategies">Strategies</h3>
 <h3 href="#Contributors">Contributors</h3>
 
 [Allison Jacobs @allisonIsCoding](https://github.com/allisonIsCoding)
