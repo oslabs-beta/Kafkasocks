@@ -92,17 +92,17 @@
     
     const pauseButton = document.getElementById('pause-button');
     pauseButton.addEventListener('click', ()=> {
-      fetch('http://localhost:3000/pause')
+      fetch('http://localhost:3001/pause')
     })
     
     const resumeButton = document.getElementById('resume-button');
     resumeButton.addEventListener('click', () => {
-      fetch('http://localhost:3000/resume')  
+      fetch('http://localhost:3001/resume')  
     })
 
     const consumeButton = document.getElementById('consume-button')
     consumeButton.addEventListener('click', () => {
-      fetch('http://localhost:3000/consume')
+      fetch('http://localhost:3001/consume')
       .then(response => response.json())
       .then(data => {
         console.log('response fine!')
