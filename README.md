@@ -1,6 +1,5 @@
 <h1 align ="center">Kafka Socks</h1>
 <h3>Table of Contents</h3>
-<h3>About</h3>
 
 * [About](https://github.com/oslabs-beta/Kafkasocks/README.md/#About)
 * [Getting Started](https://github.com/oslabs-beta/Kafkasocks/README.md/Getting-Started])
@@ -8,6 +7,8 @@
 * [Strategies](https://github.com/oslabs-beta/Kafkasocks/README.md/Strategies)
 * [Contributors](https://github.com/oslabs-beta/Kafkasocks/README.md/Contributors)
 * [License](https://github.com/oslabs-beta/Kafkasocks/README.md/License)
+
+<h3 href="#About">About</h3>
 
 <h3>Getting Started</h3>
 
