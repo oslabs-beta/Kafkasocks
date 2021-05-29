@@ -48,14 +48,25 @@ const Features = () => {
 
   return (
     <Card className={classes.img}>
-      <CardMedia
+      {/* <CardMedia
         component="img"
         alt="What Matters"
         height="200"
-        image="./Images/TeamFocus.jpg"
+        image="\playground\client\TeamFocus.jpg"
         title="What Matters"
-      />
+      /> */}
       <CardContent>
+        <Typography align="center">
+          <img
+            alt="profilePhoto"
+            style={{
+              height: "12vh",
+              paddingBottom: "1vh",
+              borderRadius: "50%",
+            }}
+            src={details.photo}
+          />
+        </Typography>
         <Typography gutterBottom variant="h5" component="h2">
           Focus on What Matters
         </Typography>
