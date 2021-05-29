@@ -2,7 +2,7 @@
 <h3>Table of Contents</h3>
 <h3>About</h3>
 
-* [About](https://github.com/oslabs-beta/Kafkasocks/README.md/About)
+* [About](https://github.com/oslabs-beta/Kafkasocks/README.md/#About)
 * [Getting Started](https://github.com/oslabs-beta/Kafkasocks/README.md/Getting-Started])
 * [Example](https://github.com/oslabs-beta/Kafkasocks/README.md/Example)
 * [Strategies](https://github.com/oslabs-beta/Kafkasocks/README.md/Strategies)
