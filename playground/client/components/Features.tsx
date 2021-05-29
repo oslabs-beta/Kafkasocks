@@ -9,7 +9,7 @@ import {
   makeStyles,
   createStyles,
 } from "@material-ui/core";
-import theme from "./theme";
+import theme from "../client/theme";
 import { flattenDiagnosticMessageText } from "typescript";
 
 const Features = () => {
