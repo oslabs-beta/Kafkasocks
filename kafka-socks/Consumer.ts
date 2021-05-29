@@ -1,5 +1,6 @@
 const { Kafka } = require("kafkajs");
 
+
 type ConsumerInterface = {
   connect: Function;
   subscribe: Function;

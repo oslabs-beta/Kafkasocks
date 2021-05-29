@@ -3,12 +3,7 @@ const express = require("express");
 const http = require("http");
 const path = require("path");
 const { Server } = require("socket.io");
-// const { Server } = require("socket.io")(http, {
-//   cors: {
-//     origin: "http://localhost:8000",
-//     methods: ["GET", "POST"],
-//   },
-// });
+
 
 import Confluent from "./../../kafka-socks/Confluent";
 import Consumer from "./../../kafka-socks/Consumer";
@@ -17,7 +12,7 @@ import Subject from "./../../kafka-socks/Subject";
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
-const PORT = 3333;
+const PORT = 3001;
 
 //prior to bringing this in from .env file, we continually received the "split of"
 // const { API_KEY: string, API_SECRET: string, KAFKA_BOOTSTRAP_SERVER: string } = process.env;
@@ -25,9 +20,6 @@ const API_KEY = "PS5UR5WJMR3M4IUK";
 const API_SECRET = `sViLnhxYPSZzirnBznMVHxRoQbvltcpmOJjlvnuv0f+SW138XyA1ZmO/kp7K87sg`;
 const KAFKA_BOOTSTRAP_SERVER = `pkc-lzvrd.us-west4.gcp.confluent.cloud:9092`;
 
-// app.use("/", (req: {}, res: {}) => {
-//   express.static(path.join(__dirname, "./../client/"));
-// });
 
 app.use(require("cors")());
 
@@ -86,4 +78,4 @@ const subject = new Subject(io, "trucks");
 subject.add(kafkasockClient);
 subject.connect();
 
-server.listen(PORT, () => console.log("listening on port 3333"));
+server.listen(PORT, () => console.log("listening on port 3001"));
