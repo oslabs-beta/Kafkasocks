@@ -3,10 +3,10 @@
 
 * [About](https://github.com/oslabs-beta/Kafkasocks/#About)
 * [Getting Started](https://github.com/oslabs-beta/Kafkasocks/#Getting-Started])
-* [Example](https://github.com/oslabs-beta/Kafkasocks/README.md/Example)
-* [Strategies](https://github.com/oslabs-beta/Kafkasocks/README.md/Strategies)
-* [Contributors](https://github.com/oslabs-beta/Kafkasocks/README.md/Contributors)
-* [License](https://github.com/oslabs-beta/Kafkasocks/README.md/License)
+* [Example](https://github.com/oslabs-beta/Kafkasocks/#Example)
+* [Strategies](https://github.com/oslabs-beta/Kafkasocks/#Strategies)
+* [Contributors](https://github.com/oslabs-beta/Kafkasocks/#Contributors)
+* [License](https://github.com/oslabs-beta/Kafkasocks/#License)
 
 <h3 href="#About">About</h3>
 
@@ -14,8 +14,8 @@
 
 ``` npm install kafka-socks ```
 
-<h3>Example</h3>
-<h3>Contributors</h3>
+<h3 href="#Example">Example</h3>
+<h3 href="#Contributors">Contributors</h3>
 
 [Allison Jacobs @allisonIsCoding](https://github.com/allisonIsCoding)
 
@@ -25,7 +25,7 @@
 
 [Vinit Patel @v-za](https://github.com/v-za)
 
-<h3>License</h3>
+<h3 href="#License">License</h3>
 
 This product is licensed under the MIT License - see the LICENSE.md file for details.
 
