@@ -52,40 +52,100 @@
       <div class="chart-container" style="position: relative; height:40vh; width:80vw">
         <canvas id="myChart" ></canvas>
       </div>
+      <button type="button" id="consume-button">Click Me to Start Consuming!</button>
+      <button type="button" id="pause-button">Pause Me!</button>
+      <button type="button" id="resume-button">Resume Me!</button>
     </div>
     <script src="/socket.io/socket.io.js"></script>
     
     <script>
-        const socket = io(); 
+
+    
+    const socket = io(); 
      
      
      //some kind of event listener based on when messages are being consumed
-     const truckSocket = io('/trucks')
+    //  const truckSocket = io('/trucks')
 
-    //  const button = document.getElementById('stop');
-    //         button.addEventListener('click', event => {
-    //          event.preventDefault();
+    // //  const button = document.getElementById('stop');
+    // //         button.addEventListener('click', event => {
+    // //          event.preventDefault();
 
-    //          truckSocket.emit('pause');
-    //     }) 
+    // //          truckSocket.emit('pause');
+    // //     }) 
 
     const array = [];
     let index = 0;
     
-     truckSocket.on('truck message', function(msg) {
-         const item = document.createElement('li');
-         const objMsg = JSON.parse(msg)
-         console.log(typeof objMsg)
-         item.textContent = msg;
-         messages.appendChild(item);
-         array.push(objMsg)
-         //setInterval(() => array.push(objMsg), 1000)
-        //  window.scrollTo(0, document.body.scrollHeight);
+    //  truckSocket.on('truck message', function(msg) {
+    //      const item = document.createElement('li');
+    //      const objMsg = JSON.parse(msg)
+    //      console.log(typeof objMsg)
+    //      item.textContent = msg;
+    //      messages.appendChild(item);
+    //      array.push(objMsg)
+    //      //setInterval(() => array.push(objMsg), 1000)
+    //     //  window.scrollTo(0, document.body.scrollHeight);
          
-     });
+    //  });
+    let truckSocket;
+    
+    const pauseButton = document.getElementById('pause-button');
+    pauseButton.addEventListener('click', ()=> {
+      fetch('http://localhost:3000/pause')
+    })
+    
+    const resumeButton = document.getElementById('resume-button');
+    resumeButton.addEventListener('click', () => {
+      fetch('http://localhost:3000/resume')  
+    })
+
+    const consumeButton = document.getElementById('consume-button')
+    consumeButton.addEventListener('click', () => {
+      fetch('http://localhost:3000/consume')
+      .then(response => response.json())
+      .then(data => {
+        console.log('response fine!')
+        
+        truckSocket = io('/trucks') // connection event
+            truckSocket.on('truck message-1', function(msg) {
+                const item = document.createElement('li');
+                const objMsg = JSON.parse(msg)
+                console.log(typeof objMsg)
+                item.textContent = msg;
+                messages.appendChild(item);
+                //array.push(objMsg)
+                window.myChart.config.data.datasets[0].data.push({
+                  x: Date.now(),
+                  y: objMsg.average_rpm})
+                console.log(window.myChart.config.data.datasets[0].data)
+                //setInterval(() => array.push(objMsg), 1000)
+               //  window.scrollTo(0, document.body.scrollHeight);
+       
+            })
+                        
+            truckSocket.on('truck message-2', function(msg) {
+                const item = document.createElement('li');
+                const objMsg = JSON.parse(msg)
+                console.log(typeof objMsg)
+                item.textContent = msg;
+                messages.appendChild(item);
+                //array.push(objMsg)
+                window.myChart.config.data.datasets[1].data.push({
+                  x: Date.now(),
+                  y: objMsg.average_rpm})
+                console.log(window.myChart.config.data.datasets[1].data)
+                //setInterval(() => array.push(objMsg), 1000)
+               //  window.scrollTo(0, document.body.scrollHeight);
+       
+            })
+        })
+
+    })
 
      var chartColors = {
   red: 'rgb(255, 99, 132)',
+  blue : 'rgba(44, 130, 201, 1)'
 };
 
 // function randomScalingFactor() {
@@ -122,6 +182,14 @@ var config = {
       fill: false,
       borderDash: [8, 4],
       data: []
+    },
+    {
+      label: 'Dataset 2 (linear interpolation)',
+      backgroundColor: color(chartColors.blue).alpha(0.5).rgbString(),
+      borderColor: chartColors.blue,
+      fill: false,
+      borderDash: [8, 4],
+      data: []
     }]
   },
   options: {
@@ -130,9 +198,9 @@ var config = {
         type: 'realtime',
         realtime: {
           duration: 20000,
-          refresh: 1000,
-          delay: 1000,
-          onRefresh: onRefresh
+          refresh: 500,
+          delay: 500,
+          onRefresh: null
         }
       },
       y: {
@@ -203,5 +271,6 @@ window.onload = function() {
 //   window.myChart.update();
 // });
     </script>
+
 </body>
 </html>
