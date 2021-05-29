@@ -9,6 +9,7 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'https://github.com/oslabs-beta/Kafkasocks', // Usually your GitHub org/user name.
   projectName: 'Kafkasocks', // Usually your repo name.
+  themes: ['@docusaurus/theme-live-codeblock'],
   themeConfig: {
     navbar: {
       title: 'Kafkasocks',
@@ -108,6 +109,7 @@ module.exports = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+        
       },
     ],
   ],
