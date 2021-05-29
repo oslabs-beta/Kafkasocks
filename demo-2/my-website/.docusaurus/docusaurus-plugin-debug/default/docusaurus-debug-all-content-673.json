@@ -1,0 +1,162 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "loadedVersions": [
+        {
+          "versionName": "current",
+          "versionLabel": "Next",
+          "versionPath": "/docs",
+          "versionEditUrl": "https://github.com/facebook/docusaurus/edit/master/website/docs",
+          "versionEditUrlLocalized": "https://github.com/facebook/docusaurus/edit/master/website/i18n/en/docusaurus-plugin-content-docs/current",
+          "isLast": true,
+          "routePriority": -1,
+          "sidebarFilePath": "/Users/jenessachapalamadugu/github/Kafkasocks/demo-2/my-website/sidebars.js",
+          "contentPath": "/Users/jenessachapalamadugu/github/Kafkasocks/demo-2/my-website/docs",
+          "contentPathLocalized": "/Users/jenessachapalamadugu/github/Kafkasocks/demo-2/my-website/i18n/en/docusaurus-plugin-content-docs/current",
+          "mainDocId": "intro",
+          "sidebars": {
+            "tutorialSidebar": [
+              {
+                "type": "doc",
+                "id": "intro"
+              },
+              {
+                "type": "doc",
+                "id": "demo"
+              },
+              {
+                "type": "doc",
+                "id": "start"
+              },
+              {
+                "type": "doc",
+                "id": "team"
+              }
+            ]
+          },
+          "permalinkToSidebar": {
+            "/docs/demo": "tutorialSidebar",
+            "/docs/intro": "tutorialSidebar",
+            "/docs/start": "tutorialSidebar",
+            "/docs/team": "tutorialSidebar"
+          },
+          "docs": [
+            {
+              "unversionedId": "demo",
+              "id": "demo",
+              "isDocsHomePage": false,
+              "title": "demo",
+              "description": "",
+              "source": "@site/docs/demo.md",
+              "sourceDirName": ".",
+              "slug": "/demo",
+              "permalink": "/docs/demo",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/master/website/docs/demo.md",
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Tutorial Intro",
+                "permalink": "/docs/intro"
+              },
+              "next": {
+                "title": "start",
+                "permalink": "/docs/start"
+              }
+            },
+            {
+              "unversionedId": "intro",
+              "id": "intro",
+              "isDocsHomePage": false,
+              "title": "Tutorial Intro",
+              "description": "Let's discover Docusaurus in less than 5 minutes.",
+              "source": "@site/docs/intro.md",
+              "sourceDirName": ".",
+              "slug": "/intro",
+              "permalink": "/docs/intro",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/master/website/docs/intro.md",
+              "version": "current",
+              "sidebarPosition": 1,
+              "frontMatter": {
+                "sidebar_position": 1
+              },
+              "sidebar": "tutorialSidebar",
+              "next": {
+                "title": "demo",
+                "permalink": "/docs/demo"
+              }
+            },
+            {
+              "unversionedId": "start",
+              "id": "start",
+              "isDocsHomePage": false,
+              "title": "start",
+              "description": "",
+              "source": "@site/docs/start.md",
+              "sourceDirName": ".",
+              "slug": "/start",
+              "permalink": "/docs/start",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/master/website/docs/start.md",
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "demo",
+                "permalink": "/docs/demo"
+              },
+              "next": {
+                "title": "team",
+                "permalink": "/docs/team"
+              }
+            },
+            {
+              "unversionedId": "team",
+              "id": "team",
+              "isDocsHomePage": false,
+              "title": "team",
+              "description": "",
+              "source": "@site/docs/team.md",
+              "sourceDirName": ".",
+              "slug": "/team",
+              "permalink": "/docs/team",
+              "editUrl": "https://github.com/facebook/docusaurus/edit/master/website/docs/team.md",
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "start",
+                "permalink": "/docs/start"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "docusaurus-plugin-content-blog": {
+    "default": null
+  },
+  "docusaurus-plugin-content-pages": {
+    "default": [
+      {
+        "type": "jsx",
+        "permalink": "/",
+        "source": "@site/src/pages/index.js"
+      },
+      {
+        "type": "mdx",
+        "permalink": "/markdown-page",
+        "source": "@site/src/pages/markdown-page.md"
+      }
+    ]
+  },
+  "docusaurus-plugin-debug": {
+    "default": null
+  },
+  "docusaurus-theme-classic": {
+    "default": null
+  },
+  "docusaurus-theme-live-codeblock": {
+    "default": null
+  }
+}
