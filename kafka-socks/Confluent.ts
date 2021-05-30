@@ -1,5 +1,4 @@
-const { Kafka } = require('kafkajs');
-
+const { Kafka } = require("kafkajs");
 
 // Confluent class instantiates the connection Confluent Kafka cluster
 export class Confluent {
@@ -31,7 +30,6 @@ export class Confluent {
       sasl,
     });
   }
-  }
-
+}
 
 export default Confluent;
