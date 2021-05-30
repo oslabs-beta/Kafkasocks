@@ -1,7 +1,7 @@
 "use strict";
 exports.__esModule = true;
 exports.Confluent = void 0;
-var Kafka = require('kafkajs').Kafka;
+var Kafka = require("kafkajs").Kafka;
 // Confluent class instantiates the connection Confluent Kafka cluster
 var Confluent = /** @class */ (function () {
     // key is the Confluent cloud API key
