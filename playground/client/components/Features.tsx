@@ -1,8 +1,8 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 import {
   makeStyles, createStyles, Container, Divider, Theme, Typography,
-} from "@material-ui/core";
-import { flattenDiagnosticMessageText } from "typescript";
+} from '@material-ui/core';
+import { flattenDiagnosticMessageText } from 'typescript';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   button: {
@@ -23,11 +23,38 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     paddingBottom: '5vh',
     background: theme.palette.background.default,
   },
+  icon: {
+    fontSize: '7vh',
+    color: theme.palette.primary.light,
+    padding: '2vh',
+  },
+  // text: {
+  //   display: 'flex',
+  //   alignContent: 'center',
+  // },
+  // features: {
+  //   display: "flex",
+  //   alignitems: "center",
+  //   padding: "2rem 0",
+  //   width: "100%",
+  // },
+  // img: {
+  //   height: "200px",
+  //   width: "200px",
+  // },
 }))
 
-
-
-
+const Features: FC = () => {
+  const classes = useStyles();
+  return (
+    <Container className={classes.container}>
+      <Typography variant='h3' color='textPrimary' align='center'>
+        Features
+     </Typography>
+      {/* <Divider variant='middle' /> */}
+      </Container>
+  )
+}
 ////////////////////////////////
 
 // const Features = () => {

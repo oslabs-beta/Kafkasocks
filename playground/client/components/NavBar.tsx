@@ -1,5 +1,5 @@
-import * as React from "react";
-import { FC } from "react";
+import * as React from 'react';
+import { FC } from 'react';
 import {
   createStyles,
   makeStyles,
@@ -9,14 +9,22 @@ import {
   IconButton,
   Button,
   Icon,
-} from "@material-ui/core";
-import { Link } from "react-scroll";
+  Theme,
+} from '@material-ui/core';
+import { Link } from 'react-scroll';
 
-const useStyles = makeStyles(() =>
+const mini = '/assets/ksMini.png';
+
+const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      width: "100vw",
+      width: '100vw',
+
       padding: 0,
+    },
+    appBar: {
+      maxHeight: '10vh',
+      background: theme.palette.primary.dark
     },
     landingButtons: {
       display: "flex",
@@ -45,13 +53,11 @@ const NavBar: FC = () => {
   return (
     <div className={classes.root}>
       <GlobalCss />
-      <AppBar>
+      <AppBar className={classes.appBar}>
         <Toolbar className={classes.landingButtons}>
-          //all of this will help auto scroll down to the section that is
-          selected. Icon will scroll to the top
           <IconButton className={classes.button}>
             <Icon component={Link} to="top" activeClass="active" spy smooth>
-              <img alt="miniNavLogo" src="/assets/Kafkasocks-mini-logo.png" />
+              <img alt="miniNavLogo" src="playground/client/assets/ksMini.png"/>
             </Icon>
           </IconButton>
           <Button
