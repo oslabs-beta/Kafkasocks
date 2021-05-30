@@ -3,6 +3,7 @@
     "jsx": "react",
     "target": "esnext",
     "module": "commonjs",
+    "moduleResolution": "node",
     "strict": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
@@ -10,5 +11,6 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
+  "include": ["client/components", "client/custom.d.ts"],
   "exclude": ["../kafka-socks", "../example", "../lib", "node_modules"]
 }
