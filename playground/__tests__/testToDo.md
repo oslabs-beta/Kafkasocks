@@ -17,6 +17,6 @@
 - Expect my messages to populate with received messages
 
 ## React Testing with Enzyme
-- RIP :(
+-
 
 ### Jest set up 
