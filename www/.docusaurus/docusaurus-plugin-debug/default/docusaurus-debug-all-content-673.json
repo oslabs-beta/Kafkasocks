@@ -10,9 +10,9 @@
           "versionEditUrlLocalized": "https://github.com/facebook/docusaurus/edit/master/website/i18n/en/docusaurus-plugin-content-docs/current",
           "isLast": true,
           "routePriority": -1,
-          "sidebarFilePath": "/Users/jenessachapalamadugu/github/Kafkasocks/www/sidebars.js",
-          "contentPath": "/Users/jenessachapalamadugu/github/Kafkasocks/www/docs",
-          "contentPathLocalized": "/Users/jenessachapalamadugu/github/Kafkasocks/www/i18n/en/docusaurus-plugin-content-docs/current",
+          "sidebarFilePath": "C:\\Users\\al_ly\\Kafkasocks\\www\\sidebars.js",
+          "contentPath": "C:\\Users\\al_ly\\Kafkasocks\\www\\docs",
+          "contentPathLocalized": "C:\\Users\\al_ly\\Kafkasocks\\www\\i18n\\en\\docusaurus-plugin-content-docs\\current",
           "mainDocId": "intro",
           "sidebars": {
             "tutorialSidebar": [

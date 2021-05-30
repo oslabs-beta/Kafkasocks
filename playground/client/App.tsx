@@ -4,7 +4,7 @@ import { FC } from 'react';
 import { Theme, createStyles, makeStyles, Typography, Container } from '@material-ui/core';
 import { Element } from 'react-scroll';
 import NavBar from './components/NavBar';
-import Features from './components/Features';
+import FeaturesContainer from './containers/FeaturesContainer';
 import DataDisplay from './DataDisplay';
 import theme from './theme';
 
@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     paddingBottom: '5vh',
   },
   bold: {
-    fontWeight: 9 00,
+    fontWeight: 900,
   }
 }))
 
@@ -73,7 +73,7 @@ const App: FC = () => {
       </Container>
 
          <Container className={classes.segment} component={Element} name="features">
-          <Features />
+          <FeaturesContainer />
         </Container>
 
           <Container className={classes.segment} component={Element} name="demo">

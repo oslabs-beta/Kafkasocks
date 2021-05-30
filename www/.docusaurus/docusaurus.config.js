@@ -121,7 +121,7 @@ export default {
       "@docusaurus/preset-classic",
       {
         "docs": {
-          "sidebarPath": "/Users/jenessachapalamadugu/github/Kafkasocks/www/sidebars.js",
+          "sidebarPath": "C:\\Users\\al_ly\\Kafkasocks\\www\\sidebars.js",
           "editUrl": "https://github.com/facebook/docusaurus/edit/master/website/"
         },
         "blog": {
@@ -129,7 +129,7 @@ export default {
           "editUrl": "https://github.com/facebook/docusaurus/edit/master/website/blog/"
         },
         "theme": {
-          "customCss": "/Users/jenessachapalamadugu/github/Kafkasocks/www/src/css/custom.css"
+          "customCss": "C:\\Users\\al_ly\\Kafkasocks\\www\\src\\css\\custom.css"
         }
       }
     ]
