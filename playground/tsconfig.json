@@ -11,5 +11,6 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
+  "include": ["client/components", "client/custom.d.ts"],
   "exclude": ["../kafka-socks", "../example", "../lib", "node_modules"]
 }
