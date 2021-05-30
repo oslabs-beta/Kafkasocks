@@ -1,37 +1,46 @@
 import * as React from 'react';
 // import * as ReactDOM from 'react-dom';
 import { FC } from 'react';
-import { Theme, createStyles, makeStyles, Typography, Container } from '@material-ui/core';
+import { Theme, createStyles, makeStyles, Typography, Container, Hidden } from '@material-ui/core';
 import { Element } from 'react-scroll';
 import NavBar from './components/NavBar';
 import FeaturesContainer from './containers/FeaturesContainer';
 import DataDisplay from './DataDisplay';
+import GettingStarted from './components/GettingStarted';
 import theme from './theme';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   container: {
-    display: 'flex',
+    display: 'inline-block',
     alignItems: 'center',
-    justifyContent: 'flex-end',
+    // justifyContent: 'flex-end',
     flexDirection: 'column',
+    overflow: 'hidden',
+    minWidth: '100vw',
+    maxWidth: '100vw',
   },
   topContainer: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'flex-end',
+    // justifyContent: 'flex-end',
     flexDirection: 'column',
     minWidth: '100vw',
+    maxWidth: '100vw',
     paddingLeft: '0',
     paddingRight: '0',
-    paddingTop: '0'
+    paddingTop: '0',
+    overflow: 'hidden',
   },
   titleBox: {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    paddingTop: '30vh',
+    paddingTop: '15vh',
     paddingBottom: '15vh',
+    minWidth: '100vw',
+    maxWidth: '100vw',
+    overflow: 'hidden',
     background: theme.palette.primary.main
   },
   segment: {
@@ -47,13 +56,15 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   }
 }))
 
+const logo = require('./assets/code.svg');
+// playground\client\assets\ks-logo-full.svg
 const App: FC = () => {
   const classes = useStyles();
   return (
     <Container className={classes.topContainer} maxWidth='lg'>
       <NavBar />
-      <Container className={classes.titleBox} component={Element} name='top'>
-        <img alt="mainLogo" style={{ height: '25vh', paddingBottom: '5vh' }} src="/assets/ksFullLogo.png" />
+      <Container className={classes.titleBox} component={Element} name='top' >
+        <img alt="mainLogo" style={{ height: '25vh', paddingBottom: '5vh' }} src={ logo }/>
         <Typography className={ classes.bold }
           variant="h3"
           align="center"
@@ -77,7 +88,7 @@ const App: FC = () => {
         </Container>
 
           <Container className={classes.segment} component={Element} name="demo">
-            {/* <MainContainer /> */}
+            <DataDisplay />
           </Container>
         <Container className={classes.segment} component={Element} name="getting started">
           {/* <GettingStarted /> */}

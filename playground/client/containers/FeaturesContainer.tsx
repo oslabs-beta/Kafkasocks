@@ -7,7 +7,7 @@ import Features from '../components/Features';
 const FeaturesContainer: FC = () => {
     const useStyles = makeStyles(() => createStyles({
         containerHorizontal: {
-            paddingTop: '10vh',
+            paddingTop: '5vh',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -15,8 +15,10 @@ const FeaturesContainer: FC = () => {
             justifyContent: 'center',
         },
         containerVertical: {
-            display: 'flex',
-            alignItems: 'center',
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr 1fr',
+          // flexDirection: 'row',
+            // display: 'inline',
             justifyContent: 'center',
         },
     }))
@@ -40,9 +42,6 @@ const FeaturesContainer: FC = () => {
 
     return (
     <Container>
-      <Typography variant="h3" color="textPrimary" align="center" gutterBottom>
-        Features (placeholder text)
-      </Typography>
       <Container className={classes.containerHorizontal}>
         <Container className={classes.containerVertical}>
           <Features details={easyToUse} />

@@ -13,7 +13,8 @@ import {
 } from '@material-ui/core';
 import { Link } from 'react-scroll';
 
-const mini = '/assets/ksMini.png';
+const miniLogo = require('../assets/Kafkasocks-mini-logo.svg');
+// playground\client\assets\ks-logo-full.svg
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -31,9 +32,10 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     logo: {
       alignSelf: "flex-start",
+      display: 'flex',
     },
     button: {
-      margin: "1rem 1rem 1rem 1rem",
+      // margin: "0.5rem 0.5rem 0.5rem /0.5rem",
       color: theme.palette.text.primary
     },
   })
@@ -57,7 +59,7 @@ const NavBar: FC = () => {
         <Toolbar className={classes.landingButtons}>
           <IconButton className={classes.button}>
             <Icon component={Link} to="top" activeClass="active" spy smooth>
-              <img alt="miniNavLogo" src="playground/client/assets/ksMini.png"/>
+              <img alt="miniNavLogo" style={{ minHeight: '2vh', maxHeight: '3vh'}} src={ miniLogo }/>
             </Icon>
           </IconButton>
           <Button
@@ -68,7 +70,6 @@ const NavBar: FC = () => {
             spy
             offset={-75}
             smooth
-            color='textPrimary'
           >
             Features
           </Button>

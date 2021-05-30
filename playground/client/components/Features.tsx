@@ -22,8 +22,9 @@ const Features: FC<FeatureCard> = ({
       justifyContent: 'center',
       padding: '1rem 1rem 1rem 1rem',
       margin: '0rem 2rem 2rem 2rem',
-      minWidth: '30vw',
-      maxWidth: '50vw',
+      minWidth: '20vw',
+      maxWidth: '20vw',
+      // border: 'none',
     },
   }));
 
@@ -42,7 +43,7 @@ const Features: FC<FeatureCard> = ({
             src={details.image}
           />
         </Typography>
-        <Typography color="textPrimary" align="center" gutterBottom>
+        <Typography color="textPrimary" style={{fontWeight: 700}}align="center" gutterBottom>
           {details.subheading}
         </Typography>
         <Typography align="center">

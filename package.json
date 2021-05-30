@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "file-loader": "^6.2.0",
+    "react-syntax-highlighter": "^15.4.3"
+  }
+}
