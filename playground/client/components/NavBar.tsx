@@ -19,8 +19,8 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       width: '100vw',
+      padding: '0',
 
-      padding: 0,
     },
     appBar: {
       maxHeight: '10vh',
