@@ -1,10 +1,67 @@
 import React, { FC } from 'react';
 import {
-  makeStyles, createStyles, Container, Divider, Theme, Typography,
+  makeStyles, createStyles, Container, Theme, Typography, Grid, Card, CardContent, CardHeader,
 } from '@material-ui/core';
-import { flattenDiagnosticMessageText } from 'typescript';
 
+interface FeatureCard {
+ details: {
+   image: string,
+   subheading: string,
+   body: string
+  }
+}
+
+const Features: FC<FeatureCard> = ({
+  details,
+}: FeatureCard) => {
+  const useStyles = makeStyles(() => createStyles({
+    root: {
+      display: 'flex',
+      alignItems: 'center',
+      alignContent: 'center',
+      justifyContent: 'center',
+      padding: '1rem 1rem 1rem 1rem',
+      margin: '0rem 2rem 2rem 2rem',
+      minWidth: '20vw',
+      maxWidth: '20vw',
+      // border: 'none',
+    },
+  }));
+
+  const classes = useStyles();
+
+  return (
+    <Card className={classes.root}>
+      <CardContent>
+        <Typography align="center">
+          <img
+            alt="featureImg"
+            style={{
+              height: '20vh',
+              paddingBottom: '1vh',
+            }}
+            src={details.image}
+          />
+        </Typography>
+        <Typography color="textPrimary" style={{fontWeight: 700}}align="center" gutterBottom>
+          {details.subheading}
+        </Typography>
+        <Typography align="center">
+          <p>{details.body}</p>
+
+        </Typography>
+      </CardContent>
+    </Card>
+  )
+}
+
+
+// ++++++++++++++++++++++++
+/*
 const useStyles = makeStyles((theme: Theme) => createStyles({
+  root: {
+    flexGrow: 1,
+  },
   button: {
     margin: '1rem 1rem 1rem 1rem',
   },
@@ -28,33 +85,44 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     color: theme.palette.primary.light,
     padding: '2vh',
   },
-  // text: {
-  //   display: 'flex',
-  //   alignContent: 'center',
-  // },
-  // features: {
-  //   display: "flex",
-  //   alignitems: "center",
-  //   padding: "2rem 0",
-  //   width: "100%",
-  // },
-  // img: {
-  //   height: "200px",
-  //   width: "200px",
-  // },
+  text: {
+    display: 'flex',
+    alignContent: 'center',
+  },
+  features: {
+    display: "flex",
+    alignitems: "center",
+    padding: "2rem 0",
+    width: "100%",
+  },
+  img: {
+    height: "200px",
+    width: "200px",
+  },
 }))
 
-const Features: FC = () => {
+const Features2: FC = () => {
   const classes = useStyles();
   return (
     <Container className={classes.container}>
       <Typography variant='h3' color='textPrimary' align='center'>
-        Features
+        Features (placeholder title)
      </Typography>
-      {/* <Divider variant='middle' /> */}
-      </Container>
+    </Container>
   )
 }
+
+*/
+
+
+
+
+
+
+
+
+
+
 ////////////////////////////////
 
 // const Features = () => {
@@ -150,4 +218,4 @@ const Features: FC = () => {
 //   );
 // };
 
-export default Features;
+  export default Features;
