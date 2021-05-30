@@ -1,32 +1,34 @@
-import { createMuiTheme } from "@material-ui/core/styles";
+import { createMuiTheme } from '@material-ui/core/styles';
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      light: "#D0E0F5",
-      main: "#BFDBF7", //<-- main fromset palette
-      dark: "#ABCFEA",
-      contrastText: "#fff",
+      light: '#E1E5F2',
+      main: '#BFDBF7', //<-- main from set palette
+      dark: '#022B3A',
+      contrastText: '#f5f5f5',
     },
     secondary: {
-      light: "#6FABC2",
-      main: "#1F7A8C",
-      dark: "#115363",
-      contrastText: "#000",
+      light: '#ffffff',
+      main: '#1F7A8C',
+      dark: '#115363',
+      contrastText: '#000',
     },
     background: {
-      default: "#f5f5f5",
+      default: 'f5f5f5',
     },
     text: {
-      primary: "#404040",
-      secondary: "#696969",
-      disabled: "#a3a3a3",
-      hint: "#a3a3a3",
+      primary: '#404040',
+      secondary: '#f5f5f5',
+      // secondary: '#696969',
+      disabled: '#a3a3a3',
+      hint: '#a3a3a3',
+
     },
   },
   typography: {
     fontSize: 14,
-    fontFamily: ["Montserrat"].join(","),
+    fontFamily: ['Montserrat'].join(','),
   },
 });
 
