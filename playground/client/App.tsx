@@ -67,7 +67,20 @@ const App: FC = () => {
           Making connecting WebSockets with Kafka as easy as npm install kafka-socks
         </Typography>
       </Container>
-      
+
+         <Container className={classes.segment} component={Element} name="features">
+          {/* <LandingBody /> */}
+        </Container>
+
+          <Container className={classes.segment} component={Element} name="demo">
+            {/* <MainContainer /> */}
+          </Container>
+        <Container className={classes.segment} component={Element} name="getting started">
+          {/* <GettingStarted /> */}
+        </Container>
+        <Container className={classes.segment} component={Element} name="team">
+          {/* <TeamContainer /> */}
+        </Container>     
       </Container>
     )
     

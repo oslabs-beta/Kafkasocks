@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     appBar: {
       maxHeight: '10vh',
-      background: theme.palette.primary.dark
+      background: theme.palette.secondary.light
     },
     landingButtons: {
       display: "flex",
@@ -35,6 +35,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     button: {
       margin: "1rem 1rem 1rem 1rem",
+      color: theme.palette.text.primary
     },
   })
 );
@@ -68,7 +69,7 @@ const NavBar: FC = () => {
             spy
             offset={-75}
             smooth
-            color="inherit"
+            color='textPrimary'
           >
             Features
           </Button>
@@ -80,7 +81,6 @@ const NavBar: FC = () => {
             spy
             offset={-75}
             smooth
-            color="inherit"
           >
             Demo
           </Button>
@@ -92,7 +92,6 @@ const NavBar: FC = () => {
             spy
             offset={-75}
             smooth
-            color="inherit"
           >
             Getting Started
           </Button>
@@ -104,7 +103,6 @@ const NavBar: FC = () => {
             spy
             offset={-75}
             smooth
-            color="inherit"
           >
             Team
           </Button>
