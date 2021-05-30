@@ -91,7 +91,7 @@ const App: FC = () => {
             <DataDisplay />
           </Container>
         <Container className={classes.segment} component={Element} name="getting started">
-          {/* <GettingStarted /> */}
+          <GettingStarted />
         </Container>
         <Container className={classes.segment} component={Element} name="team">
           {/* <TeamContainer /> */}

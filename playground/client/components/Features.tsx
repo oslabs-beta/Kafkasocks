@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import {
   makeStyles, createStyles, Container, Theme, Typography, Grid, Card, CardContent, CardHeader,
 } from '@material-ui/core';
+import { AutomaticPrefetchPlugin } from 'webpack';
 
 interface FeatureCard {
  details: {
@@ -17,13 +18,13 @@ const Features: FC<FeatureCard> = ({
   const useStyles = makeStyles(() => createStyles({
     root: {
       display: 'flex',
-      alignItems: 'center',
+      alignItems: 'top',
       alignContent: 'center',
       justifyContent: 'center',
       padding: '1rem 1rem 1rem 1rem',
-      margin: '0rem 2rem 2rem 2rem',
-      minWidth: '20vw',
-      maxWidth: '20vw',
+      margin: '1rem 1rem 1rem 1rem',
+      // minWidth: '20vw',
+      // width: 'auto',
       // border: 'none',
     },
   }));
@@ -37,7 +38,8 @@ const Features: FC<FeatureCard> = ({
           <img
             alt="featureImg"
             style={{
-              height: '20vh',
+              width: '90%',
+              height: 'auto',
               paddingBottom: '1vh',
             }}
             src={details.image}
