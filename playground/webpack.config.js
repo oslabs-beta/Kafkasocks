@@ -1,7 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
-
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   //below production mode is not being used as of 2:30pm 5/19.
@@ -18,10 +17,10 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [
-          "style-loader",
-          "@teamsupercell/typings-for-css-modules-loader",
+          'style-loader',
+          '@teamsupercell/typings-for-css-modules-loader',
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: { modules: true },
           },
         ],
@@ -30,7 +29,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json', ".css", ".scss"],
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json', '.css', '.scss'],
   },
   output: {
     path: path.resolve(__dirname, 'build'),
@@ -44,7 +43,7 @@ module.exports = {
     proxy: {
       '*': 'http://[::1]:3001',
       changeOrigin: true,
-    }
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({

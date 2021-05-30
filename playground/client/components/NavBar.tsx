@@ -20,12 +20,11 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       width: '100vw',
       padding: '0',
-
     },
     appBar: {
       maxHeight: '10vh',
       background: theme.palette.secondary.light
-    },
+    }, 
     landingButtons: {
       display: "flex",
       justifyContent: "flex-start",

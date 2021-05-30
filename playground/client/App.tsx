@@ -6,6 +6,7 @@ import { Element } from 'react-scroll';
 import NavBar from './components/NavBar';
 import Features from './components/Features';
 import DataDisplay from './DataDisplay';
+import theme from './theme';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   container: {
@@ -41,6 +42,9 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     paddingTop: '5vh',
     paddingBottom: '5vh',
   },
+  bold: {
+    fontWeight: 9 00,
+  }
 }))
 
 const App: FC = () => {
@@ -49,9 +53,9 @@ const App: FC = () => {
     <Container className={classes.topContainer} maxWidth='lg'>
       <NavBar />
       <Container className={classes.titleBox} component={Element} name='top'>
-        <img alt="mainLogo" style={{ height: '25vh', paddingBottom: '5vh' }} src="/assets/Kafkasocks-full-logo.png" />
-        <Typography
-          variant="h1"
+        <img alt="mainLogo" style={{ height: '25vh', paddingBottom: '5vh' }} src="/assets/ksFullLogo.png" />
+        <Typography className={ classes.bold }
+          variant="h3"
           align="center"
           color="textSecondary"
           gutterBottom
@@ -69,7 +73,7 @@ const App: FC = () => {
       </Container>
 
          <Container className={classes.segment} component={Element} name="features">
-          {/* <LandingBody /> */}
+          <Features />
         </Container>
 
           <Container className={classes.segment} component={Element} name="demo">
