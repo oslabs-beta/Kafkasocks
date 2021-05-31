@@ -2,7 +2,7 @@
   "compilerOptions": {
     "jsx": "react",
     "target": "esnext",
-    "module": "commonjs",
+    "module": "commonJS",
     "moduleResolution": "node",
     "strict": true,
     "allowSyntheticDefaultImports": true,
