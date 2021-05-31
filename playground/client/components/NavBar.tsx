@@ -59,7 +59,7 @@ const NavBar: FC = () => {
         <Toolbar className={classes.landingButtons}>
           <IconButton className={classes.button}>
             <Icon component={Link} to="top" activeClass="active" spy smooth>
-              <img alt="miniNavLogo" style={{ minHeight: '2vh', maxHeight: '3vh'}} src={ miniLogo }/>
+              <img alt="miniNavLogo" style={{ height: '95%' }} src={ miniLogo }/>
             </Icon>
           </IconButton>
           <Button
