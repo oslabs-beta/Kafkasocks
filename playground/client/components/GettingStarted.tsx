@@ -48,7 +48,7 @@ const GettingStarted: FC = () => {
   const classes = useStyles();
   return (
     <Container className={classes.wrapper}>
-      <Typography variant="h3" color="textPrimary" align="center" gutterBottom>
+      <Typography variant="h4" color="textPrimary" align="center" gutterBottom>
         Getting Started
       </Typography>
       <Container className={classes.main}>
@@ -75,7 +75,7 @@ const GettingStarted: FC = () => {
             className={classes.button}
             variant="contained"
             color="secondary"
-            href="https://app.gitbook.com/@kafka-socks/s/kafka-socks/"
+            href="https://github.com/oslabs-beta/Kafkasocks#readme"
           >
             Documentation
           </Button>

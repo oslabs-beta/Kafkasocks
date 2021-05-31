@@ -7,6 +7,7 @@ import NavBar from './components/NavBar';
 import FeaturesContainer from './containers/FeaturesContainer';
 import DataDisplay from './DataDisplay';
 import GettingStarted from './components/GettingStarted';
+import TeamContainer from './containers/TeamContainer';
 import theme from './theme';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
@@ -94,7 +95,7 @@ const App: FC = () => {
           <GettingStarted />
         </Container>
         <Container className={classes.segment} component={Element} name="team">
-          {/* <TeamContainer /> */}
+          <TeamContainer />
         </Container>     
       </Container>
     )
