@@ -45,6 +45,10 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     overflow: 'hidden',
     background: theme.palette.primary.main
   },
+  demoContainer: {
+    minWidth: '70vw',
+    maxWidth: '70vw'
+  },
   segment: {
     display: 'flex',
     flexDirection: 'column',
@@ -89,7 +93,7 @@ const App: FC = () => {
         <FeaturesContainer />
         </Container>
 
-          <Container className={classes.segment} component={Element} name="demo">
+          <Container className={classes.demoContainer} component={Element} name="demo" maxWidth='lg'>
             <DataDisplay />
           </Container>
         <Container className={classes.segment} component={Element} name="getting started">

@@ -76,6 +76,7 @@ const GettingStarted: FC = () => {
             variant="contained"
             color="secondary"
             href="https://github.com/oslabs-beta/Kafkasocks#readme"
+           
           >
             Documentation
           </Button>
