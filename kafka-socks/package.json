@@ -1,15 +1,15 @@
 {
-  "name": "src",
-  "version": "1.0.0",
-  "description": "",
+  "name": "kafka-socks",
+  "version": "0.1.0",
+  "description": "Connect KafkaJS to WebSockets with ease.",
   "main": "index.js",
   "scripts": {
     "test": "ts-node Confluent Consumer Subject && npx jest --verbose true",
     "__run__": "tsc Kafkasocks.ts && node Kafkasocks.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Allison Jacobs, Jason Fricano, Jenessa Chapalamadugu, Vinit Patel",
+  "license": "MIT",
   "dependencies": {
     "@types/node": "^15.3.0",
     "dotenv": "^10.0.0",
