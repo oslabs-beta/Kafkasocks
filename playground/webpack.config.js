@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   //below production mode is not being used as of 2:30pm 5/19.
-  mode: 'development',
+  mode: 'production',
   entry: './client/index.tsx',
 
   module: {
@@ -51,7 +51,8 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.json', '.css', '.scss'],
   },
   output: {
-    path: path.resolve(__dirname, 'build'),
+    //path: path.resolve(__dirname, 'build'),
+    publicPath: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
   },
   devtool: 'inline-source-map',
@@ -64,9 +65,8 @@ module.exports = {
       changeOrigin: true,
     },
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './client/index.html'),
-    }),
-  ],
+  // plugins: [new CleanWebpackPlugin(), new HtmlWebpackPlugin({
+  //   template: "",
+  //   minify: false,
+  // })],
 };

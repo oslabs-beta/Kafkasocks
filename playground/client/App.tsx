@@ -7,6 +7,7 @@ import NavBar from './components/NavBar';
 import FeaturesContainer from './containers/FeaturesContainer';
 import DataDisplay from './DataDisplay';
 import GettingStarted from './components/GettingStarted';
+import TeamContainer from './containers/TeamContainer';
 import theme from './theme';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
@@ -42,6 +43,10 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     maxWidth: '100vw',
     overflow: 'hidden',
     background: theme.palette.primary.main
+  },
+  demoContainer: {
+    minWidth: '70vw',
+    maxWidth: '70vw'
   },
   segment: {
     display: 'flex',
@@ -87,14 +92,14 @@ const App: FC = () => {
           <FeaturesContainer />
         </Container>
 
-          <Container className={classes.segment} component={Element} name="demo">
+          <Container className={classes.demoContainer} component={Element} name="demo" maxWidth='lg'>
             <DataDisplay />
           </Container>
         <Container className={classes.segment} component={Element} name="getting started">
-          {/* <GettingStarted /> */}
+          <GettingStarted />
         </Container>
         <Container className={classes.segment} component={Element} name="team">
-          {/* <TeamContainer /> */}
+          <TeamContainer />
         </Container>     
       </Container>
     )

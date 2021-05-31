@@ -19,8 +19,9 @@ require('dotenv').config();
 
 const port = 3000;
 
-app.get('/', (req: any, res: any) => {
-  res.sendFile(__dirname + '/chart.html')
+app.get("/", (req: any, res: any) => {
+  res.sendFile(path.resolve(__dirname, "../client/index.html"));
+  // res.sendFile("index.html");
 });
 
 produce().catch((error: any) => {
@@ -42,7 +43,7 @@ const trucks_subject = new Subject(io, 'trucks')
 trucks_subject.add(consumer_1)
 trucks_subject.add(consumer_2)
 
-trucks_subject.connect()
+// trucks_subject.connect()
 //wrap connect in an event listener of sorts
 app.get('/consume', (req: any, res : any) => {
   trucks_subject.connect()

@@ -1,26 +1,56 @@
-import * as React from "react";
+// import * as React from "react";
+import React, { useState, useEffect } from "react";
 import io from "socket.io-client";
-import { ThemeProvider } from "@material-ui/core/styles";
+import { Container, Button } from "@material-ui/core";
+
 
 import { Line } from "react-chartjs-2";
 import "chartjs-plugin-streaming";
 
 //initiate websocket on port
-const socket = io("http://localhost:3000/trucks", {
-  transports: ["websocket"],
-  upgrade: false,
-});
+
+
+// const DataDisplay = () => {
+  
+//   const message = () => {
+//    console.log("Hello World!") 
+//   }
+  
+//   return (
+//   <button onClick={message}> Press me to print a message! </button>
+//     );
+//   }
 
 const DataDisplay = ({}) => {
-  let currentValue: any[] = [];
-  let index = 0;
-  // listening for "new download" event on websocket. Then parses the data and pushes into currentValue array.
-  socket.on("new download", (download) => {
-    const jsonParse = JSON.parse(download);
-    currentValue.push(jsonParse["kafka-socks-downloads"]);
-  });
+  // let currentValue: any[] = [];
+  // let index = 0;
+  const [running, setRunning] = useState(false);
 
+  
   // data object for chartjs
+  useEffect(() => {
+    console.log('in useffect')
+    console.log(running)
+    if(running){
+      fetch('http://localhost:3000/consume')
+      const socket = io("http://localhost:3000/trucks", {
+      transports: ["websocket"],
+      upgrade: false,
+      });
+      socket.on('truck message-1', msg => {
+        let objMsg = JSON.parse(msg);
+        data.datasets[0].data.push({
+          x: Date.now(),
+          y: objMsg.speed
+        })
+      })
+    }
+
+  })
+  
+ 
+    
+  
   const data = {
     datasets: [
       {
@@ -34,6 +64,11 @@ const DataDisplay = ({}) => {
     ],
   };
 
+  
+  const message = () => {
+    console.log("Hello World!") 
+   }
+
   //options for chartjs
   const options = {
     scales: {
@@ -41,13 +76,15 @@ const DataDisplay = ({}) => {
         {
           type: "realtime",
           realtime: {
-            onRefresh: function () {
-              index++;
-              data.datasets[0].data.push({
-                x: Date.now(),
-                y: currentValue[index],
-              });
-            },
+            onRefresh: null,
+            // onRefresh: function () {
+            //   // index++;
+            //   // data.datasets[0].data.push({
+            //   //   x: Date.now(),
+            //   //   y: currentValue[index],
+            //   // });
+
+            // },
             delay: 2000,
           },
         },
@@ -56,14 +93,17 @@ const DataDisplay = ({}) => {
     maintainAspectRatio: false,
   };
 
+
   return (
     // <ThemeProvider theme={theme}>
+    <Container>
     <div>
       <h1>Demo</h1>
       <h1>Kafkasocks Live Downloads</h1>
+      <button onClick={() => setRunning(true)} >Consume</button>
       <Line data={data} options={options} />
     </div>
-    // </ThemeProvider>
+    </Container>
   );
 };
 

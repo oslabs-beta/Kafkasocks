@@ -6,7 +6,7 @@
   "scripts": {
     "__test__": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "start": "ts-node ./server/server.ts --open",
+    "start": "ts-node server/server.ts --open",
     "go": "npm run build && npm start",
     "__dev-mac-only__": "cross-env NODE_ENV=development webpack serve --open && NODE_ENV=development nodemon server/server.ts",
     "dev": "concurrently \"cross-env NODE_ENV=development webpack serve --open\" \"nodemon server/server.ts\"",
@@ -50,6 +50,7 @@
     "concurrently": "^6.1.0",
     "cross-env": "^7.0.3",
     "css-loader": "^5.2.6",
+    "image-webpack-loader": "^7.0.1",
     "mini-css-extract-plugin": "^1.6.0",
     "svg-url-loader": "^7.1.1",
     "ts-loader": "^9.2.1",

@@ -4,21 +4,22 @@ import {
 } from '@material-ui/core';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { materialLight } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import GetAppRoundedIcon from '@material-ui/icons/GetAppRounded';
+import SystemUpdateAltIcon from '@material-ui/icons/SystemUpdateAlt';
 
 const GettingStarted: FC = () => {
   const useStyles = makeStyles((theme: Theme) => createStyles({
     main: {
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'space-between',
+      justifyContent: 'space-around',
       alignItems: 'center',
       alignContent: 'center',
-      marginTop: '5vh',
-      backgroundColor: theme.palette.background.default,
-      paddingTop: '3vh',
-      paddingBottom: '3vh',
+      marginTop: '1vh',
+      backgroundColor: theme.palette.primary.main,
+      paddingTop: '1vh',
+      paddingBottom: '1vh',
       width: 'auto',
+      borderRadius: '5px'
     },
     button: {
       margin: '1rem 1rem 1rem 1rem',
@@ -33,55 +34,57 @@ const GettingStarted: FC = () => {
       display: 'flex',
       justifyContent: 'center',
     },
-    divider: {
-      height: '1px',
-    },
     icon: {
-      color: theme.palette.secondary.light,
+      color: theme.palette.secondary.main,
       fontSize: '5vh',
-      padding: '2vh',
+      padding: '1vh',
     },
+    codeBlock: {
+      borderRadius: '5px'
+    }
   }));
-  const installCode = 'npm install kafka-penguin';
-  const importCode = 'import { DeadLetterQueue } from \'kafka-penguin\';';
+  const installCodeBlock = 'npm install kafka-socks';
+  const importCodeBlock = 'import { Consumer, Confluent, Subject } from \'kafka-socks\';';
   const classes = useStyles();
   return (
     <Container className={classes.wrapper}>
-      <Typography variant="h3" color="textPrimary" align="center" gutterBottom>
-        GETTING STARTED
+      <Typography variant="h4" color="textPrimary" align="center" gutterBottom>
+        Getting Started
       </Typography>
-      <Divider className={classes.divider} variant="middle" flexItem />
       <Container className={classes.main}>
-        <Typography color="textSecondary" gutterBottom>
+        <Typography color="textPrimary" gutterBottom>
           Simply install from npm and import into your project
         </Typography>
-        <GetAppRoundedIcon className={classes.icon} />
+        <SystemUpdateAltIcon className={classes.icon} />
         <SyntaxHighlighter
           language="javascript"
           style={materialLight}
+          className={classes.codeBlock}
         >
-          { installCode }
+          { installCodeBlock }
         </SyntaxHighlighter>
         <SyntaxHighlighter
           language="javascript"
           style={materialLight}
+          className={classes.codeBlock}
         >
-          { importCode }
+          { importCodeBlock }
         </SyntaxHighlighter>
         <Container className={classes.buttonsContainer} maxWidth="md">
           <Button
             className={classes.button}
             variant="contained"
-            color="primary"
-            href="https://app.gitbook.com/@kafka-penguin-1/s/kafka-penguin/"
+            color="secondary"
+            href="https://github.com/oslabs-beta/Kafkasocks#readme"
+           
           >
             Documentation
           </Button>
           <Button
             className={classes.button}
             variant="contained"
-            color="primary"
-            href="https://github.com/oslabs-beta/kafka-penguin"
+            color="secondary"
+            href="https://github.com/oslabs-beta/Kafkasocks"
           >
             Github
           </Button>
