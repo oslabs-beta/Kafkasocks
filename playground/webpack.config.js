@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   //below production mode is not being used as of 2:30pm 5/19.
-  mode: 'development',
+  mode: 'production',
   entry: './client/index.tsx',
 
   module: {
@@ -39,7 +39,8 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.json', '.css', '.scss'],
   },
   output: {
-    path: path.resolve(__dirname, 'build'),
+    //path: path.resolve(__dirname, 'build'),
+    publicPath: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
   },
   devtool: 'inline-source-map',
@@ -48,8 +49,9 @@ module.exports = {
     contentBase: './build',
     port: 8000,
     proxy: {
-      '*': 'http://[::1]:3001',
+      '*': 'http://[::1]:3000',
       changeOrigin: true,
     },
   },
+
 };
