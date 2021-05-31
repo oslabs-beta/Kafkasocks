@@ -25,11 +25,8 @@ const TeamMember: FC<Props> = ({
       justifyContent: 'center',
       padding: '1rem 1rem 1rem 1rem',
       margin: '0rem 2rem 2rem 2rem',
-          width: '23%',
+      width: '23%',
       height: '45vh'
-    //   height: '30%',
-      
-    //   maxWidth: '',
     },
   }));
 
