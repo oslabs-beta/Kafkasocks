@@ -31,6 +31,8 @@ const KAFKA_BOOTSTRAP_SERVER = `pkc-lzvrd.us-west4.gcp.confluent.cloud:9092`;
 
 app.use(require("cors")());
 
+app.use('/build', express.static(path.join(__dirname, '../build')));
+
 app.get("/", (req: any, res: any) => {
   res.sendFile(path.resolve(__dirname, "../client/index.html"));
   // res.sendFile("index.html");
