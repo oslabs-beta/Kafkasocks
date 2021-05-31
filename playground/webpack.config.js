@@ -1,6 +1,4 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   //below production mode is not being used as of 2:30pm 5/19.
@@ -11,20 +9,10 @@ module.exports = {
     rules: [
       {
         test: /\.(ts|js)x?$/,
-        loader: require.resolve('babel-loader'),
-        exclude: /node_modules/,
+        loader: 'babel-loader',
+        exclude: '/node_modules/',
       },
-      {
-        test: /\.css$/i,
-        use: [
-          'style-loader',
-          '@teamsupercell/typings-for-css-modules-loader',
-          {
-            loader: 'css-loader',
-            options: { modules: true },
-          },
-        ],
-      },
+
       {
         test: /\.svg$/,
         use: [
@@ -64,9 +52,4 @@ module.exports = {
       changeOrigin: true,
     },
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './client/index.html'),
-    }),
-  ],
 };
