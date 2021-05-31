@@ -6,7 +6,7 @@ import { Line } from "react-chartjs-2";
 import "chartjs-plugin-streaming";
 
 //initiate websocket on port
-const socket = io("http://localhost:3001/trucks", {
+const socket = io("http://localhost:3000/trucks", {
   transports: ["websocket"],
   upgrade: false,
 });
