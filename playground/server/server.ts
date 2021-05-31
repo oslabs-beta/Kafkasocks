@@ -19,6 +19,8 @@ require('dotenv').config();
 
 const port = 3000;
 
+app.use('/build', express.static(path.join(__dirname, '../build')));
+
 app.get("/", (req: any, res: any) => {
   res.sendFile(path.resolve(__dirname, "../client/index.html"));
   // res.sendFile("index.html");

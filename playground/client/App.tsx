@@ -1,13 +1,14 @@
 import * as React from 'react';
 // import * as ReactDOM from 'react-dom';
 import { FC } from 'react';
-import { Theme, createStyles, makeStyles, Typography, Container, Hidden } from '@material-ui/core';
+import { Button, Theme, createStyles, makeStyles, Typography, Container, Hidden } from '@material-ui/core';
 import { Element } from 'react-scroll';
 import NavBar from './components/NavBar';
 import FeaturesContainer from './containers/FeaturesContainer';
 import DataDisplay from './DataDisplay';
 import GettingStarted from './components/GettingStarted';
 import TeamContainer from './containers/TeamContainer';
+import Footer from './components/Footer';
 import theme from './theme';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
@@ -89,7 +90,7 @@ const App: FC = () => {
       </Container>
 
          <Container className={classes.segment} component={Element} name="features">
-          <FeaturesContainer />
+        <FeaturesContainer />
         </Container>
 
           <Container className={classes.demoContainer} component={Element} name="demo" maxWidth='lg'>
@@ -100,7 +101,10 @@ const App: FC = () => {
         </Container>
         <Container className={classes.segment} component={Element} name="team">
           <TeamContainer />
-        </Container>     
+      </Container>
+      <Container className={classes.segment} component={Element} name="footer">
+          {/* <Footer /> */}
+        </Container>
       </Container>
     )
     
