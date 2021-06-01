@@ -3,8 +3,14 @@ const express = require("express");
 const http = require("http");
 const path = require("path");
 const { Server } = require("socket.io");
-import Consumer from "./../../kafka-socks/Consumer";
-import Subject from "./../../kafka-socks/Subject";
+// import Consumer from "kafka-socks";
+// import Subject from "./../../kafka-socks/Subject";
+
+// const {Consumer} = require('kafka-socks');
+// const {Subject} = require('kafka-socks');
+import { Consumer } from 'kafka-socks';
+import { Subject } from 'kafka-socks';
+
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
@@ -19,7 +25,9 @@ require('dotenv').config();
 
 const port = 3000;
 
-app.use('/build', express.static(path.join(__dirname, '../build')));
+app.use(require("cors")());
+
+app.use('/dist', express.static(path.join(__dirname, '../dist')));
 
 app.get("/", (req: any, res: any) => {
   res.sendFile(path.resolve(__dirname, "../client/index.html"));

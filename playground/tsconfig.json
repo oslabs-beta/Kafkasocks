@@ -9,8 +9,9 @@
     "esModuleInterop": true,
     "watch": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": false,
   },
-  "include": ["client/components", "client/custom.d.ts"],
+  "include": ["client/components", "client/custom.d.ts", "server/**/*"],
   "exclude": ["../kafka-socks", "../example", "../lib", "node_modules"]
 }
