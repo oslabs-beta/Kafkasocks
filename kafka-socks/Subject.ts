@@ -9,7 +9,7 @@ import Consumer from "./Consumer";
 //   pause: Function;
 // }
 
-class Subject {
+export class Subject {
   io: any;
   namespace: any;
   consumerArr: any[];

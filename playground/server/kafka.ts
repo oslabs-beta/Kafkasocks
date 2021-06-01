@@ -1,4 +1,4 @@
-import Confluent from "./../../kafka-socks/Confluent";
+import { Confluent } from 'kafka-socks';
 
 require('dotenv').config();
 
