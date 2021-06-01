@@ -14,7 +14,7 @@ import { Subject } from 'kafka-socks';
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
-const PORT = 3001;
+const PORT = 3000;
 
 
 
@@ -23,7 +23,7 @@ import { kafka } from './kafka'
 require('dotenv').config();
 
 
-const port = 3000;
+// const port = 3000;
 
 app.use(require("cors")());
 
@@ -71,7 +71,7 @@ app.get('/resume', (req: any, res: any) => {
 })
 
   
-server.listen(port, () => {
+server.listen(PORT, () => {
   console.log(`Listening on port ${server.address().port}`);
 });
 require('dotenv').config();
