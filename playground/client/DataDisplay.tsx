@@ -100,7 +100,6 @@ const DataDisplay = ({}) => {
     <div>
       <h1>Demo</h1>
       <h1>Kafkasocks Live Downloads</h1>
-      <button onClick={() => setRunning(true)} >Consume</button>
       <Line data={data} options={options} />
     </div>
     </Container>
