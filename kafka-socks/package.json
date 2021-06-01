@@ -1,8 +1,18 @@
 {
   "name": "kafka-socks",
+<<<<<<< HEAD
   "version": "0.1.0",
   "description": "Connect KafkaJS to WebSockets with ease.",
   "main": "index.js",
+=======
+  "version": "0.1.2",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "index.d.ts",
+  "files": [
+    "/dist"
+  ],
+>>>>>>> c74d09a7684f7e5461c0598d42b9bf95c613ae7b
   "scripts": {
     "test": "ts-node Confluent Consumer Subject && npx jest --verbose true",
     "__run__": "tsc Kafkasocks.ts && node Kafkasocks.js"
@@ -11,13 +21,13 @@
   "author": "Allison Jacobs, Jason Fricano, Jenessa Chapalamadugu, Vinit Patel",
   "license": "MIT",
   "dependencies": {
-    "@types/node": "^15.3.0",
     "dotenv": "^10.0.0",
     "kafkajs": "^1.15.0",
     "socket.io": "^4.1.2"
   },
   "devDependencies": {
     "@types/jest": "^26.0.23",
+    "@types/node": "^15.6.1",
     "jest": "^27.0.1",
     "ts-jest": "^27.0.1",
     "ts-node": "^9.1.1",
