@@ -1,6 +1,5 @@
 const { Kafka } = require("kafkajs");
 
-
 type ConsumerInterface = {
   connect: Function;
   subscribe: Function;
@@ -26,7 +25,7 @@ type Message = {
   value: string;
 };
 
-class Consumer {
+export class Consumer {
   consumer: ConsumerInterface;
   topic: string;
   event: string;
