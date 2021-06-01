@@ -40,13 +40,13 @@ module.exports = {
   },
   output: {
     //path: path.resolve(__dirname, 'build'),
-    publicPath: path.resolve(__dirname, 'build'),
+    publicPath: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
   },
   devtool: 'inline-source-map',
 
   devServer: {
-    contentBase: './build',
+    contentBase: './dist',
     port: 8000,
     proxy: {
       '*': 'http://[::1]:3000',
