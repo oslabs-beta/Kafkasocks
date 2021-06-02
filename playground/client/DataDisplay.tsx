@@ -32,8 +32,8 @@ const DataDisplay = ({}) => {
     console.log('in useffect')
     console.log(running)
     if(running){
-      fetch('http://localhost:3000/consume')
-      const socket = io("http://localhost:3000/trucks", {
+      fetch('http://localhost:3001/consume')
+      const socket = io("http://localhost:3001/trucks", {
       transports: ["websocket"],
       upgrade: false,
       });

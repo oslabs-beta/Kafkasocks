@@ -29,6 +29,9 @@ module.exports = {
         use: [
           {
             loader: 'file-loader',
+            options: {
+              esModule: false,
+            },
           },
         ],
       },
@@ -49,7 +52,7 @@ module.exports = {
     contentBase: './dist',
     port: 8000,
     proxy: {
-      '*': 'http://[::1]:3000',
+      '*': 'http://[::1]:3001',
       changeOrigin: true,
     },
   },

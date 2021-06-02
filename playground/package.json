@@ -15,6 +15,8 @@
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
+    "@mdi/js": "^5.9.55",
+    "@mdi/react": "^1.5.0",
     "@teamsupercell/typings-for-css-modules-loader": "^2.5.1",
     "chart.js": "^2.9.4",
     "chartjs-plugin-streaming": "^1.9.0",

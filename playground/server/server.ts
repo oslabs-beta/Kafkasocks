@@ -23,7 +23,7 @@ import { kafka } from './kafka'
 require('dotenv').config();
 
 
-const port = 3000;
+const port = 3001;
 
 app.use(require("cors")());
 

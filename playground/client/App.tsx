@@ -38,8 +38,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    paddingTop: '15vh',
-    paddingBottom: '15vh',
+    paddingTop: '5vh',
+    paddingBottom: '5vh',
     minWidth: '100vw',
     maxWidth: '100vw',
     overflow: 'hidden',
@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   }
 }))
 
-const logo = require('./assets/code.svg');
+const logo = require('./assets/logo.svg').default;
 // playground\client\assets\ks-logo-full.svg
 const App: FC = () => {
   const classes = useStyles();
@@ -70,7 +70,7 @@ const App: FC = () => {
     <Container className={classes.topContainer} maxWidth='lg'>
       <NavBar />
       <Container className={classes.titleBox} component={Element} name='top' >
-        <img alt="mainLogo" style={{ height: '25vh', paddingBottom: '5vh' }} src={ logo }/>
+        <img alt="mainLogo" style={{ height: '45vh', paddingBottom: '5vh' }} src={ logo }/>
         <Typography className={ classes.bold }
           variant="h3"
           align="center"
@@ -103,7 +103,7 @@ const App: FC = () => {
           <TeamContainer />
       </Container>
       <Container className={classes.segment} component={Element} name="footer">
-          {/* <Footer /> */}
+          <Footer />
         </Container>
       </Container>
     )
