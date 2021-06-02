@@ -109,5 +109,3 @@ This product is licensed under the MIT License - see the LICENSE.md file for det
 This is an open source product. We are not affiliated nor endorsed by either the Apache Software Foundation or KafkaJS.
 
 This product is accelerated by [OS Labs](https://opensourcelabs.io/).
-
-_Apache Kafka and Kafka are either registered trademarks or trademarks of The Apache Software Foundation in the United States and other countries. Kafka Socks has no affiliation with the Apache Software Foundation._
