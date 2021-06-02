@@ -3,7 +3,10 @@
 </p>
 <h1 align ="center">Kafka Socks</h1>
 <p align="center">An easy-to-use, lightweight KafkaJS-to-Socket.io library for connecting and visualizing data in realtime.</p>
-
+<p align="center">
+<img id="MIT-License" src="https://img.shields.io/apm/l/atomic-design-ui.svg?" />
+<img id="MIT-License" src="https://img.shields.io/apm/l/atomic-design-ui.svg?" />
+</p>
 <h2>Table of Contents</h2>
 
 * [About](https://github.com/oslabs-beta/Kafkasocks/#About)
