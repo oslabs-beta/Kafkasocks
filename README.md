@@ -46,7 +46,7 @@ Once installed, you can now require on your server the modules necessary to impl
 
 1. Import the library classes needed:
 
-```typescript
+```javascript
 import { Confluent, Consumer, Subject } from 'kafka-socks';
 import { Kafka }
 
@@ -54,7 +54,7 @@ import { Kafka }
 
 2. Instantiate a websocket server.  (Done here using socket.io to wrap around an express server):
 
-```typescript
+```javascript
 const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
@@ -67,7 +67,7 @@ const io = new Server(server);
 
 3. Instantiate the Kafka Cluster object using the Kafka Socks Confluent class:
 
-```typescript
+```javascript
 const kafka = new Confluent(
     API_KEY,
     API_SECRET,
@@ -78,13 +78,13 @@ const kafka = new Confluent(
 ```
 
 4. Instantiate Kafka Socks Consumer object - you can create as many as you need:
- ```typescript
+ ```javascript
  const kafkaConsumer = kafka.consumer({ groupId: 'your-groupId-here' });
  const kafkaSocksConsumer = new Consumer(kafkaConsumer, 'kafka-topic', 'websocket-event-ID')
  ```
 
 5. Link the Kafkasocks Consumers with websocket namespaces for the front end:
-```typescript
+```javascript
 const kafkaSocksSubject = new Subject(io, 'websocket-namespace-ID')
 ```
 
