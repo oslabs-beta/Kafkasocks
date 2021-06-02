@@ -34,7 +34,7 @@ Using the observer design pattern, WebSockets permit the server to pipe data in 
 
 <h3 href="#Example">Example</h3>
 
-Set up your Confluent.io connection using kafka-socks Confluent class.
+Set up your Confluent.io connection using the Kafka Socks Confluent class.
 ```typescript
 //kafka.ts 
 import { Confluent } from 'kafka-socks';
