@@ -2,6 +2,7 @@
 <img src="https://user-images.githubusercontent.com/76595505/120492529-2645a880-c388-11eb-8533-779b6770b243.png" width="250" />
 </p>
 <h1 align ="center">Kafka Socks</h1>
+<p align="center">An easy-to-use, lightweight KafkaJS-to-Socket.io library for connecting and visualizing data in realtime.</p>
 
 <h2>Table of Contents</h2>
 
