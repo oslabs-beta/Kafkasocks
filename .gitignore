@@ -4,3 +4,4 @@ node_modules
 Subject.js
 Consumer.js
 Confluent.js
+*.zip

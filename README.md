@@ -9,12 +9,12 @@
 </p>
 <h2>Table of Contents</h2>
 
-* [About](https://github.com/oslabs-beta/Kafkasocks/#About)
-* [Getting Started](https://github.com/oslabs-beta/Kafkasocks/#Getting-Started])
-* [Features](https://github.com/oslabs-beta/Kafkasocks/#Features)
-* [Example](https://github.com/oslabs-beta/Kafkasocks/#Example)
-* [Contributors](https://github.com/oslabs-beta/Kafkasocks/#Contributors)
-* [License](https://github.com/oslabs-beta/Kafkasocks/#License)
+- [About](https://github.com/oslabs-beta/Kafkasocks/#About)
+- [Getting Started](https://github.com/oslabs-beta/Kafkasocks/#Getting-Started])
+- [Features](https://github.com/oslabs-beta/Kafkasocks/#Features)
+- [Example](https://github.com/oslabs-beta/Kafkasocks/#Example)
+- [Contributors](https://github.com/oslabs-beta/Kafkasocks/#Contributors)
+- [License](https://github.com/oslabs-beta/Kafkasocks/#License)
 
 <h2 href="#About">About</h2>
 
@@ -26,114 +26,73 @@ Without a WebSocket, the only way a web client could access data consumed by the
 
 Using the observer design pattern, WebSockets permit the server to pipe data in time because there is always an established and open link between the server and client. Kafka Socks did not invent this system design. In fact, it is a relatively common pattern to achieve realtime data processing on the frontend. Instead, Kafka Socks abstracts away the details of implementing this kafka-websocket design pattern, providing developers with an easy way to implement this pattern in a few lines of code.
 
-
 <h2 href="#Features">Features</h2>
 
-* Confluent 
-    * Used to set up a connection with a Confluent.io cluster
-* Consumer
-    * Used to simply and intuitively set up as many (or as few) consumers needed
-* Subject
-    * Used to create a new subject to which consumers can subscribe
+- Confluent : A singleton class used to instantiate a Kafka Cluster object using cluster hosted by Confluent.io</br></br>
+- Consumer: A wrapper around a kafkaJS Consumer object, instantiate as many (or as few) consumers as needed</br></br>
+- Subject: Used to create a new Kafka Socks Subject, which pipes the messages consumed by the Kafka consumers to the specified websocket namespace
 
 <h2>Getting Started</h2>
 
-``` npm install kafka-socks ```
+Install Kafka Socks as an npm module and save it to your package.json as a dependency.
 
-<h2 href="#Example">Example</h2>
+`npm install kafka-socks`
 
-Set up your Confluent.io connection using the Kafka Socks Confluent class.
-```typescript
-//kafka.ts 
-import { Confluent } from 'kafka-socks';
+Once installed, you can now require on your server the modules necessary to implement Kafka Socks:
 
-require('dotenv').config();
+`import { Confluent, Consumer, Subject } from 'kafka-socks';`
 
-const API_KEY = '[your Apache Confluent.io API_KEY string here]';
-const API_SECRET = '[your Apache Confluent.io API_SECRET string here]';
-const KAFKA_BOOTSTRAP_SERVER = '[your Apache Confluent.io KAFKA_BOOTSTRAP_SERVER string here]';
+<h2 href="#Example">How to Use</h2>
 
-const kafka: { producer: Function; consumer: Function } = new Confluent(
-    API_KEY,
-    API_SECRET,
-    KAFKA_BOOTSTRAP_SERVER
-  ).create('client-id');
+1. Import the library classes needed:
 
-export { kafka };
+```
+import { Confluent, Consumer, Subject } from 'kafka-socks';
+import { Kafka }
+
 ```
 
-```typescript
-// producer.ts 
-import { kafka } from './kafka' //imported from kafka.ts
+2. Instantiate a websocket server.  (Done here using socket.io to wrap around an express server):
 
-const fs = require('fs');
-
-const producer = kafka.producer()
-
-const produce = async () => {
-
-    await producer.connect();
-    ...
-    }
-    
-export { produce }
 ```
-
-```typescript
-//server.ts
-require('dotenv').config();
 const express = require('express');
 const http = require('http');
-const path = require('path');
 const { Server } = require('socket.io');
-
-import { Consumer } from 'kafka-socks';
-import { Subject } from 'kafka-socks';
 
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
-const PORT = 3000;
 
-import { produce } from './producer'
-import { kafka } from './kafka'
-
-app.use(require('cors')());
-
-app.use('/dist', express.static(path.join(__dirname, '../dist')));
-
-app.get('/', (req: any, res: any) => {
-  res.sendFile(path.resolve(__dirname, '../client/index.html'));
-});
-
-produce().catch((error: any) => {
-  console.log(error);
-  process.exit(1);
-})
-
-const kafkaconsumer_1 = kafka.consumer({
-  groupId: 'example-group-1'
-})
-const kafkaconsumer_2 = kafka.consumer({
-  groupId: 'example-group-2'
-})
-
-const consumer_1 = new Consumer(kafkaconsumer_1, 'example-topic-1', 'example-message-1') //
-const consumer_2 = new Consumer(kafkaconsumer_2, 'example-topic-2', 'example-message-2')
-const example_subject = new Subject(io, 'example')
-example_subject.add(consumer_1)
-example_subject.add(consumer_2)
-
-...
-
-server.listen(PORT, () => {
-  console.log(`Listening on port ${server.address().port}`);
-});
 ```
+
+3. Instantiate the Kafka Cluster object using the Kafka Socks Confluent class:
+
+```
+const kafka = new Confluent(
+    API_KEY,
+    API_SECRET,
+    KAFKA_BOOTSTRAP_SERVER
+  )
+  .create("client-id");
+
+```
+
+4. Instantiate Kafka Socks Consumer object(s) (each Kafka Socks Co)
+ ```
+ const kafkaConsumer = kafka.consumer({ groupId: 'your-groupId-here' });
+ const kafkaSocksConsumer = new Consumer(kafkaConsumer, 'kafka-topic', 'websocket-event-ID')
+ ```
+
+5. Link the Kafkasocks Consumers with websocket namespaces for the front end.
+```
+const kafkaSocksSubject = new Subject(io, 'websocket-namespace-ID')
+```
+
+6. Set up your websocket listener on the front end using your favorite websocket framework.
 
 <h2 href="#Contributors">Contributors</h2>
 
-Kafka Socks is an open-source community project on Github. While the project is maintained by a small group of dedicated engineers (below), we are grateful to the community for bug fixes, feature development and other contributions. 
+Kafka Socks is an open-source community project on Github. While the project is maintained by a small group of dedicated engineers (below), we are grateful to the community for bug fixes, feature development and other contributions.
 
 [Allison Jacobs @allisonIsCoding](https://github.com/allisonIsCoding)
 
@@ -145,12 +104,12 @@ Kafka Socks is an open-source community project on Github. While the project is 
 
 We welcome contributions to Kafka Socks, but we also would love to see a thriving third-party ecosystem. If you are interest in creating an open-source project that builds on top of Kafka Socks, please don't hesitate to reach out, and we'd be happy to provide feedback and support.
 
-<h3 href="#License">License</h3>
+<h2 href="#License">License</h2>
 
 This product is licensed under the MIT License - see the LICENSE.md file for details.
 
 This is an open source product. We are not affiliated nor endorsed by either the Apache Software Foundation or KafkaJS.
 
-This product is accelerated by [OS Labs.](https://opensourcelabs.io/)
+This product is accelerated by [OS Labs](https://opensourcelabs.io/).
 
-*Apache Kafka and Kafka are either registered trademarks or trademarks of The Apache Software Foundation in the United States and other countries. Kafka Socks has no affiliation with the Apache Software Foundation.*
+_Apache Kafka and Kafka are either registered trademarks or trademarks of The Apache Software Foundation in the United States and other countries. Kafka Socks has no affiliation with the Apache Software Foundation._
