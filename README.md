@@ -48,8 +48,6 @@ Once installed, you can now require the modules necessary to implement Kafka Soc
 
 ```javascript
 import { Confluent, Consumer, Subject } from 'kafka-socks';
-import { Kafka }
-
 ```
 
 2. Instantiate a websocket server.  (Done here using socket.io to wrap around an express server):
