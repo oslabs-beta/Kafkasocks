@@ -15,6 +15,26 @@
 ``` npm install kafka-socks ```
 
 <h3 href="#Example">Example</h3>
+
+```
+//kafka.ts example
+import { Confluent } from 'kafka-socks';
+
+require('dotenv').config();
+
+const API_KEY = `[your Apache Confluent.io API_KEY string here]`;
+const API_SECRET = `[your Apache Confluent.io API_SECRET string here]`;
+const KAFKA_BOOTSTRAP_SERVER = `[your Apache Confluent.io KAFKA_BOOTSTRAP_SERVER string here]`;
+
+const kafka: { producer: Function; consumer: Function } = new Confluent(
+    API_KEY,
+    API_SECRET,
+    KAFKA_BOOTSTRAP_SERVER
+  ).create("client-id");
+
+export { kafka };
+```
+
 <h3 href="#Strategies">Strategies</h3>
 <h3 href="#Contributors">Contributors</h3>
 
