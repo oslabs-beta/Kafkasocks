@@ -10,8 +10,8 @@
 <h2>Table of Contents</h2>
 
 - [About](https://github.com/oslabs-beta/Kafkasocks/#About)
-- [Getting Started](https://github.com/oslabs-beta/Kafkasocks/#Getting-Started])
 - [Features](https://github.com/oslabs-beta/Kafkasocks/#Features)
+- [Getting Started](https://github.com/oslabs-beta/Kafkasocks/#Getting-Started])
 - [Example](https://github.com/oslabs-beta/Kafkasocks/#Example)
 - [Contributors](https://github.com/oslabs-beta/Kafkasocks/#Contributors)
 - [License](https://github.com/oslabs-beta/Kafkasocks/#License)
