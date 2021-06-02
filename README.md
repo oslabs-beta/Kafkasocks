@@ -98,7 +98,7 @@ const PORT = 3000;
 import { produce } from './producer'
 import { kafka } from './kafka'
 
-app.use(require("cors")());
+app.use(require('cors')());
 
 app.use('/dist', express.static(path.join(__dirname, '../dist')));
 
