@@ -17,15 +17,15 @@ const DataDisplay: FC = ({ }) => {
     main: {
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'space-around',
+      justifyContent: 'space-between',
       alignItems: 'center',
       alignContent: 'center',
       marginTop: '1vh',
       backgroundColor: theme.palette.background.default,
       paddingTop: '1vh',
-      width: 'auto',
-      border: 'none',
-      height: '80%'
+      // width: 'auto',
+      // border: 'none',
+      height: '80%',
 
     },
     button: {
@@ -40,7 +40,7 @@ const DataDisplay: FC = ({ }) => {
       flexDirection: 'column',
       justifyItems: 'center',
       alignItems: 'center',
-      height: '200vh',
+      height: '500vh',
     }
   }))
 
@@ -66,10 +66,10 @@ const DataDisplay: FC = ({ }) => {
       case "PAUSED":
         console.log('in paused')
         // fetch('http://localhost:3000/pause')
-        break;
+        break; 
     }
     
-
+ 
   }) 
   
   const data = {

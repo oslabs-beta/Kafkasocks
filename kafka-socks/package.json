@@ -12,8 +12,8 @@
     "__run__": "tsc Kafkasocks.ts && node Kafkasocks.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Allison Jacobs, Jason Fricano, Jenessa Chapalamadugu, Vinit Patel",
+  "license": "MIT",
   "dependencies": {
     "dotenv": "^10.0.0",
     "kafkajs": "^1.15.0",

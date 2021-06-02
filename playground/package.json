@@ -10,7 +10,7 @@
     "go": "npm run build && npm start",
     "__dev-mac-only__": "cross-env NODE_ENV=development webpack serve --open && NODE_ENV=development nodemon server/server.ts",
     "dev": "concurrently \"cross-env NODE_ENV=development webpack serve --open\" \"nodemon server/server.ts\"",
-    "components": "cross-env NODE_ENV=development webpack serve --open"
+    "components": "webpack serve --open"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.4",
