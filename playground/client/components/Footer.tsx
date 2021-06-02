@@ -66,7 +66,6 @@ export default function Footer() {
       <BottomNavigationAction
         label="Github"
         value="github"
-        target="_blank" rel="noopener noreferrer"
         href="https://github.com/oslabs-beta/Kafkasocks#readme"
         target="_blank" 
         rel="noopener noreferrer"
