@@ -4,7 +4,6 @@
 * [About](https://github.com/oslabs-beta/Kafkasocks/#About)
 * [Getting Started](https://github.com/oslabs-beta/Kafkasocks/#Getting-Started])
 * [Example](https://github.com/oslabs-beta/Kafkasocks/#Example)
-* [Strategies](https://github.com/oslabs-beta/Kafkasocks/#Strategies)
 * [Contributors](https://github.com/oslabs-beta/Kafkasocks/#Contributors)
 * [License](https://github.com/oslabs-beta/Kafkasocks/#License)
 
@@ -105,7 +104,6 @@ server.listen(PORT, () => {
 });
 ```
 
-<h3 href="#Strategies">Strategies</h3>
 <h3 href="#Contributors">Contributors</h3>
 
 Kafka Socks is an open-source community project on Github. While the project is maintained by a small group of dedicated engineers (below), we are grateful to the community for bug fixes, feature development and other contributions. 
