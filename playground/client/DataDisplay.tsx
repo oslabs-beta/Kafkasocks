@@ -1,7 +1,7 @@
 // import * as React from "react";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, FC } from "react";
 import io from "socket.io-client";
-import { Container, Button } from "@material-ui/core";
+import { Container, Button, Typography, makeStyles, createStyles, Theme } from "@material-ui/core";
 
 
 import { Line } from "react-chartjs-2";
@@ -12,7 +12,38 @@ import "chartjs-plugin-streaming";
 
 
 
-const DataDisplay = ({}) => {
+const DataDisplay: FC = ({ }) => {
+  const useStyles = makeStyles((theme: Theme) => createStyles({
+    main: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-around',
+      alignItems: 'center',
+      alignContent: 'center',
+      marginTop: '1vh',
+      backgroundColor: theme.palette.background.default,
+      paddingTop: '1vh',
+      width: 'auto',
+      border: 'none',
+      height: '80%'
+
+    },
+    button: {
+      margin: '1rem 1rem 1rem 1rem',
+    },
+    buttonsContainer: {
+      display: 'flex',
+      justifyContent: 'center',
+    },
+    wrapper: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyItems: 'center',
+      alignItems: 'center',
+      height: '200vh',
+    }
+  }))
+
   // let currentValue: any[] = [];
   // let index = 0;
   const [running, setRunning] = useState("DEAD");
@@ -39,11 +70,7 @@ const DataDisplay = ({}) => {
     }
     
 
-  })
-  
-
- 
-    
+  }) 
   
   const data = {
     datasets: [
@@ -121,7 +148,7 @@ const DataDisplay = ({}) => {
       }
     },
     responsive: true,
-    maintainAspectRatio: false,
+    maintainAspectRatio: true,
     elements: {
       line: {
         tension: 0.4
@@ -130,15 +157,19 @@ const DataDisplay = ({}) => {
  
   };
 
-
+  const classes = useStyles();
   return (
     // <ThemeProvider theme={theme}>
-    <Container>
-    <div>
-      <h1>Demo</h1>
-      <h1>Kafkasocks Live Downloads</h1>
+    <Container className={ classes.wrapper }>
+      <Typography variant="h4" color="textPrimary" align="center" gutterBottom>Demo</Typography>
+      <Container className={ classes.main }>
       <Line data={data} options={options} />
-      <button onClick = {()=>{
+        <Container className={ classes.buttonsContainer}>
+        <Button
+          className={classes.button}
+          variant="contained"
+          color="secondary"
+          onClick={() => {
                 if(!started){
                   setStarted(true);
                   setRunning("STARTED")
@@ -147,17 +178,26 @@ const DataDisplay = ({}) => {
                   setRunning("RESUMED")
                 }
         
-      }}> START </button>
-      <button onClick={()=> {
+      }}> Start </Button>
+        <Button
+          className={classes.button}
+          variant="contained"
+          color="secondary"
+          onClick={() => {
 
         fetch('http://localhost:3000/resume')
       }
-        }> RESUME</button>
-      <button onClick = {()=>{
+        }> Resume </Button>
+        <Button
+          className={classes.button}
+          variant="contained"
+          color="secondary"
+          onClick={() => {
         fetch('http://localhost:3000/pause')
         //setRunning("PAUSED")
-      }}> STOP </button>
-    </div>
+            }}> Stop </Button>
+          </Container>
+      </Container>
     </Container>
   );
 };

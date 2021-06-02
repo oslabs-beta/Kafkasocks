@@ -55,7 +55,6 @@ trucks_subject.add(consumer_1)
 trucks_subject.add(consumer_2)
 
 app.get('/consume', (req: any, res : any) => {
-  console.log('connnectteddd')
   produce().catch((error: any) => {
     console.log(error);
     process.exit(1);
