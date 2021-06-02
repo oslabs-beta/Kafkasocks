@@ -46,7 +46,9 @@ export class Consumer {
   } 
   pauser(){
     console.log('in pauser method')
+    this.resume = false;
     this.pause = true;
+
   }
 
   resumer(namespace : any) { 
@@ -61,33 +63,33 @@ export class Consumer {
 
   // instantiate the Kafka consumer on the passed topic and subscribe with that consumer
 
-  async runAfterResume(namespace : any) {
-   await this.consumer.run({
+  // async runAfterResume(namespace : any) {
+  //  await this.consumer.run({
 
-      eachMessage: async (eventInfo: EventInterface) => {
-    //listening for a pause event
-        if(this.pause) {
-          this.consumer.pause([{topic: this.topic}])
-          //setTimeout(() => this.consumer.resume([{topic: this.topic}]), 10000)
-        }
+  //     eachMessage: async (eventInfo: EventInterface) => {
+  //   //listening for a pause event
+  //       if(this.pause) {
+  //         this.consumer.pause([{topic: this.topic}])
+  //         //setTimeout(() => this.consumer.resume([{topic: this.topic}]), 10000)
+  //       }
 
-        // else if(this.resume) {
-        //   console.log('in Consumer.ts after resume is set to true :', this.resume)
-        //   this.consumer.resume([{topic: this.topic}]);
-        //   this.resume = false;
-        // }
-    namespace.emit(this.event, eventInfo.message.value.toString());
-        console.log(
-          "received Message from kafka",
-          JSON.parse(eventInfo.message.value.toString())
-        );
-      },
-    }); 
-  }
+  //       // else if(this.resume) {
+  //       //   console.log('in Consumer.ts after resume is set to true :', this.resume)
+  //       //   this.consumer.resume([{topic: this.topic}]);
+  //       //   this.resume = false;
+  //       // }
+  //   namespace.emit(this.event, eventInfo.message.value.toString());
+  //       console.log(
+  //         "received Message from kafka",
+  //         JSON.parse(eventInfo.message.value.toString())
+  //       );
+  //     },
+  //   }); 
+  // }
   async run(namespace: any) {
     
-    console.log('seeing if we need to compile')
-    console.log("consumer is about to run");
+  
+    console.log("Consumer in run()");
     await this.consumer.connect();
     console.log("consumer has connected");
 
@@ -104,6 +106,7 @@ export class Consumer {
       eachMessage: async (eventInfo: EventInterface) => {
         //listening for a pause event
         if (this.pause) {
+          console.log('PAUSE IS TRUE')
           if(this.resume){
             console.log('inside nested resume in if(this.pause)')
             console.log('this.resume: ', this.resume)
