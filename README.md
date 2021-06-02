@@ -108,6 +108,8 @@ server.listen(PORT, () => {
 <h3 href="#Strategies">Strategies</h3>
 <h3 href="#Contributors">Contributors</h3>
 
+Kafka Socks is an open-source community project on Github. While the project is maintained by a small group of dedicated engineers (below), we are grateful to the community for bug fixes, feature development and other contributions. 
+
 [Allison Jacobs @allisonIsCoding](https://github.com/allisonIsCoding)
 
 [Jason Fricano @jfricano](https://github.com/jfricano)
@@ -116,6 +118,8 @@ server.listen(PORT, () => {
 
 [Vinit Patel @v-za](https://github.com/v-za)
 
+We welcome contributions to Kafka Socks, but we also would love to see a thriving third-party ecosystem. If you are interest in creating an open-source project that builds on top of Kafka Socks, please don't hesitate to reach out, and we'd be happy to provide feedback and support.
+
 <h3 href="#License">License</h3>
 
 This product is licensed under the MIT License - see the LICENSE.md file for details.
@@ -123,3 +127,5 @@ This product is licensed under the MIT License - see the LICENSE.md file for det
 This is an open source product. We are not affiliated nor endorsed by either the Apache Software Foundation or KafkaJS.
 
 This product is accelerated by [OS Labs.](https://opensourcelabs.io/)
+
+*Apache Kafka and Kafka are either registered trademarks or trademarks of The Apache Software Foundation in the United States and other countries. Kafka Socks has no affiliation with the Apache Software Foundation.*
