@@ -17,9 +17,7 @@ app.get('/', (req: any, res: any) => {
   res.sendFile(__dirname + '/chart.html')
 });
 
-// in the html we do this
-//socket.emit('consumer', consumer)
-//io.on('consumer' (socket, consumer))
+
         
 produce().catch((error: any) => {
   console.log(error);
