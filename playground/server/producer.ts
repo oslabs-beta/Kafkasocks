@@ -1,22 +1,6 @@
-import { kafka } from './kafka'
+import { kafka } from './kafka' //imported from kafka.ts
 
 const fs = require('fs');
-// const trucks: any = []
-
-// try {
-//     // read contents of the file
-//     const data = fs.readFileSync('truck_engine_sensors.json', 'UTF-8');
-//     // split the contents by new line
-//     const lines = data.split(/\r?\n/);
-//     // print all lines
-//     lines.pop();
-//     lines.forEach((line : any) => {
-//         // trucks.push(JSON.parse(line))
-//         trucks.push(line)
-//     });
-// } catch (err) {
-//     console.error(err);
-// }
 
 // PRODUCER
 const randomizer = (hi: number, lo: number = 0) => {
