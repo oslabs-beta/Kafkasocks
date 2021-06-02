@@ -6,6 +6,7 @@ import { Element } from 'react-scroll';
 import NavBar from './components/NavBar';
 import FeaturesContainer from './containers/FeaturesContainer';
 import DataDisplay from './DataDisplay';
+import BarDisplay from './BarDisplay';
 import GettingStarted from './components/GettingStarted';
 import TeamContainer from './containers/TeamContainer';
 import Footer from './components/Footer';
@@ -95,6 +96,7 @@ const App: FC = () => {
 
           <Container className={classes.demoContainer} component={Element} name="demo" maxWidth='lg'>
             <DataDisplay />
+            <BarDisplay />
           </Container>
         <Container className={classes.segment} component={Element} name="getting started">
           <GettingStarted />

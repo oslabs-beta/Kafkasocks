@@ -3,12 +3,22 @@ const express = require("express");
 const http = require("http");
 const path = require("path");
 const { Server } = require("socket.io");
+// import Consumer from "kafka-socks";
+// import Subject from "./../../kafka-socks/Subject";
+
+// const {Consumer} = require('kafka-socks');
+// const {Subject} = require('kafka-socks');
+
+// import { Consumer } from 'kafka-socks';
+// import { Subject } from 'kafka-socks';
+
 import Consumer from "./../../kafka-socks/Consumer";
 import Subject from "./../../kafka-socks/Subject";
+
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
-const PORT = 3001;
+const PORT = 3000;
 
 
 
@@ -17,19 +27,18 @@ import { kafka } from './kafka'
 require('dotenv').config();
 
 
-const port = 3000;
+// const port = 3000;
 
-app.use('/build', express.static(path.join(__dirname, '../build')));
+app.use(require("cors")());
+
+app.use('/dist', express.static(path.join(__dirname, '../dist')));
 
 app.get("/", (req: any, res: any) => {
   res.sendFile(path.resolve(__dirname, "../client/index.html"));
   // res.sendFile("index.html");
 });
 
-produce().catch((error: any) => {
-  console.log(error);
-  process.exit(1);
-})
+
 
 const kafkaconsumer_1 = kafka.consumer({
   groupId: 'truck-group-1'
@@ -45,25 +54,32 @@ const trucks_subject = new Subject(io, 'trucks')
 trucks_subject.add(consumer_1)
 trucks_subject.add(consumer_2)
 
-// trucks_subject.connect()
-//wrap connect in an event listener of sorts
 app.get('/consume', (req: any, res : any) => {
+  console.log('connnectteddd')
+  produce().catch((error: any) => {
+    console.log(error);
+    process.exit(1);
+  })
   trucks_subject.connect()
   return res.send({message : 'works!'})
 })
 
+
 app.get('/pause', (req : any, res : any ) => {
   console.log('in the middleware for pause')
+  console.log('in pause')
   trucks_subject.pause();
+  return res.send({message : 'works!'})
 })
 
 app.get('/resume', (req: any, res: any) => {
   console.log('in the middleware for resume')
   trucks_subject.resume();
+  return res.send({message : 'works!'})
 })
 
   
-server.listen(port, () => {
+server.listen(PORT, () => {
   console.log(`Listening on port ${server.address().port}`);
 });
 require('dotenv').config();
