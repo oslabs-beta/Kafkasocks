@@ -49,15 +49,15 @@ import { Confluent } from 'kafka-socks';
 
 require('dotenv').config();
 
-const API_KEY = `[your Apache Confluent.io API_KEY string here]`;
-const API_SECRET = `[your Apache Confluent.io API_SECRET string here]`;
-const KAFKA_BOOTSTRAP_SERVER = `[your Apache Confluent.io KAFKA_BOOTSTRAP_SERVER string here]`;
+const API_KEY = '[your Apache Confluent.io API_KEY string here]';
+const API_SECRET = '[your Apache Confluent.io API_SECRET string here]';
+const KAFKA_BOOTSTRAP_SERVER = '[your Apache Confluent.io KAFKA_BOOTSTRAP_SERVER string here]';
 
 const kafka: { producer: Function; consumer: Function } = new Confluent(
     API_KEY,
     API_SECRET,
     KAFKA_BOOTSTRAP_SERVER
-  ).create("client-id");
+  ).create('client-id');
 
 export { kafka };
 ```
@@ -81,11 +81,11 @@ export { produce }
 
 ```typescript
 //server.ts
-require("dotenv").config();
-const express = require("express");
-const http = require("http");
-const path = require("path");
-const { Server } = require("socket.io");
+require('dotenv').config();
+const express = require('express');
+const http = require('http');
+const path = require('path');
+const { Server } = require('socket.io');
 
 import { Consumer } from 'kafka-socks';
 import { Subject } from 'kafka-socks';
@@ -102,8 +102,8 @@ app.use(require("cors")());
 
 app.use('/dist', express.static(path.join(__dirname, '../dist')));
 
-app.get("/", (req: any, res: any) => {
-  res.sendFile(path.resolve(__dirname, "../client/index.html"));
+app.get('/', (req: any, res: any) => {
+  res.sendFile(path.resolve(__dirname, '../client/index.html'));
 });
 
 produce().catch((error: any) => {
