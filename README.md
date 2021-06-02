@@ -38,7 +38,7 @@ Install Kafka Socks as an npm module and save it to your package.json as a depen
 
 `npm install kafka-socks`
 
-Once installed, you can now require on your server the modules necessary to implement Kafka Socks:
+Once installed, you can now require the modules necessary to implement Kafka Socks:
 
 `import { Confluent, Consumer, Subject } from 'kafka-socks';`
 
