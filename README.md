@@ -10,8 +10,8 @@
 <h2>Table of Contents</h2>
 
 - [About](https://github.com/oslabs-beta/Kafkasocks/#About)
-- [Getting Started](https://github.com/oslabs-beta/Kafkasocks/#Getting-Started])
 - [Features](https://github.com/oslabs-beta/Kafkasocks/#Features)
+- [Getting Started](https://github.com/oslabs-beta/Kafkasocks/#Getting-Started])
 - [Example](https://github.com/oslabs-beta/Kafkasocks/#Example)
 - [Contributors](https://github.com/oslabs-beta/Kafkasocks/#Contributors)
 - [License](https://github.com/oslabs-beta/Kafkasocks/#License)
@@ -38,7 +38,7 @@ Install Kafka Socks as an npm module and save it to your package.json as a depen
 
 `npm install kafka-socks`
 
-Once installed, you can now require on your server the modules necessary to implement Kafka Socks:
+Once installed, you can now require the modules necessary to implement Kafka Socks:
 
 `import { Confluent, Consumer, Subject } from 'kafka-socks';`
 
@@ -46,15 +46,13 @@ Once installed, you can now require on your server the modules necessary to impl
 
 1. Import the library classes needed:
 
-```
+```javascript
 import { Confluent, Consumer, Subject } from 'kafka-socks';
-import { Kafka }
-
 ```
 
 2. Instantiate a websocket server.  (Done here using socket.io to wrap around an express server):
 
-```
+```javascript
 const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
@@ -67,7 +65,7 @@ const io = new Server(server);
 
 3. Instantiate the Kafka Cluster object using the Kafka Socks Confluent class:
 
-```
+```javascript
 const kafka = new Confluent(
     API_KEY,
     API_SECRET,
@@ -77,18 +75,18 @@ const kafka = new Confluent(
 
 ```
 
-4. Instantiate Kafka Socks Consumer object(s) (each Kafka Socks Co)
- ```
+4. Instantiate Kafka Socks Consumer object - you can create as many as you need:
+ ```javascript
  const kafkaConsumer = kafka.consumer({ groupId: 'your-groupId-here' });
  const kafkaSocksConsumer = new Consumer(kafkaConsumer, 'kafka-topic', 'websocket-event-ID')
  ```
 
-5. Link the Kafkasocks Consumers with websocket namespaces for the front end.
-```
+5. Link the Kafkasocks Consumers with websocket namespaces for the front end:
+```javascript
 const kafkaSocksSubject = new Subject(io, 'websocket-namespace-ID')
 ```
 
-6. Set up your websocket listener on the front end using your favorite websocket framework.
+6. Then simply set up your WebSocket listener on the front end using your favorite WebSockets framework!
 
 <h2 href="#Contributors">Contributors</h2>
 
@@ -111,5 +109,3 @@ This product is licensed under the MIT License - see the LICENSE.md file for det
 This is an open source product. We are not affiliated nor endorsed by either the Apache Software Foundation or KafkaJS.
 
 This product is accelerated by [OS Labs](https://opensourcelabs.io/).
-
-_Apache Kafka and Kafka are either registered trademarks or trademarks of The Apache Software Foundation in the United States and other countries. Kafka Socks has no affiliation with the Apache Software Foundation._
