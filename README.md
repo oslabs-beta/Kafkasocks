@@ -88,7 +88,7 @@ const kafka = new Confluent(
 const kafkaSocksSubject = new Subject(io, 'websocket-namespace-ID')
 ```
 
-6. Then simply set up your WebSocket listener on the front end using your favorite WebSocket framework!
+6. Then simply set up your WebSocket listener on the front end using your favorite WebSockets framework!
 
 <h2 href="#Contributors">Contributors</h2>
 
