@@ -16,6 +16,7 @@
 
 <h3 href="#Example">Example</h3>
 
+Set up your Confluent.io connection using kafka-socks Confluent class.
 ```typescript
 //kafka.ts 
 import { Confluent } from 'kafka-socks';
