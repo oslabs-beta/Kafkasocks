@@ -16,8 +16,8 @@
 
 <h3 href="#Example">Example</h3>
 
-```
-//kafka.ts example
+```typescript
+//kafka.ts 
 import { Confluent } from 'kafka-socks';
 
 require('dotenv').config();
@@ -33,6 +33,75 @@ const kafka: { producer: Function; consumer: Function } = new Confluent(
   ).create("client-id");
 
 export { kafka };
+```
+
+```typescript
+// producer.ts 
+import { kafka } from './kafka' //imported from kafka.ts
+
+const fs = require('fs');
+
+const producer = kafka.producer()
+
+const produce = async () => {
+
+    await producer.connect();
+    ...
+    }
+    
+export { produce }
+```
+
+```typescript
+//server.ts
+require("dotenv").config();
+const express = require("express");
+const http = require("http");
+const path = require("path");
+const { Server } = require("socket.io");
+
+import { Consumer } from 'kafka-socks';
+import { Subject } from 'kafka-socks';
+
+const app = express();
+const server = http.createServer(app);
+const io = new Server(server);
+const PORT = 3000;
+
+import { produce } from './producer'
+import { kafka } from './kafka'
+
+app.use(require("cors")());
+
+app.use('/dist', express.static(path.join(__dirname, '../dist')));
+
+app.get("/", (req: any, res: any) => {
+  res.sendFile(path.resolve(__dirname, "../client/index.html"));
+});
+
+produce().catch((error: any) => {
+  console.log(error);
+  process.exit(1);
+})
+
+const kafkaconsumer_1 = kafka.consumer({
+  groupId: 'example-group-1'
+})
+const kafkaconsumer_2 = kafka.consumer({
+  groupId: 'example-group-2'
+})
+
+const consumer_1 = new Consumer(kafkaconsumer_1, 'example-topic-1', 'example-message-1') //
+const consumer_2 = new Consumer(kafkaconsumer_2, 'example-topic-2', 'example-message-2')
+const example_subject = new Subject(io, 'example')
+example_subject.add(consumer_1)
+example_subject.add(consumer_2)
+
+...
+
+server.listen(PORT, () => {
+  console.log(`Listening on port ${server.address().port}`);
+});
 ```
 
 <h3 href="#Strategies">Strategies</h3>
