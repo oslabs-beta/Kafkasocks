@@ -145,7 +145,7 @@ Kafka Socks is an open-source community project on Github. While the project is 
 
 We welcome contributions to Kafka Socks, but we also would love to see a thriving third-party ecosystem. If you are interest in creating an open-source project that builds on top of Kafka Socks, please don't hesitate to reach out, and we'd be happy to provide feedback and support.
 
-<h3 href="#License">License</h3>
+<h2 href="#License">License</h2>
 
 This product is licensed under the MIT License - see the LICENSE.md file for details.
 
