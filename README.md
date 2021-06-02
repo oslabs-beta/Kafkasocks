@@ -77,18 +77,18 @@ const kafka = new Confluent(
 
 ```
 
-4. Instantiate Kafka Socks Consumer object(s) (each Kafka Socks Co)
+4. Instantiate Kafka Socks Consumer object - you can create as many as you need:
  ```typescript
  const kafkaConsumer = kafka.consumer({ groupId: 'your-groupId-here' });
  const kafkaSocksConsumer = new Consumer(kafkaConsumer, 'kafka-topic', 'websocket-event-ID')
  ```
 
-5. Link the Kafkasocks Consumers with websocket namespaces for the front end.
+5. Link the Kafkasocks Consumers with websocket namespaces for the front end:
 ```typescript
 const kafkaSocksSubject = new Subject(io, 'websocket-namespace-ID')
 ```
 
-6. Then simply set up your WebSocket listener on the front end using your favorite websocket framework!
+6. Then simply set up your WebSocket listener on the front end using your favorite WebSocket framework!
 
 <h2 href="#Contributors">Contributors</h2>
 
