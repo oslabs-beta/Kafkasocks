@@ -1,5 +1,9 @@
+<p align="center">
+<img src="https://user-images.githubusercontent.com/76595505/120492529-2645a880-c388-11eb-8533-779b6770b243.png" width="250" />
+</p>
 <h1 align ="center">Kafka Socks</h1>
-<h3>Table of Contents</h3>
+
+<h2>Table of Contents</h2>
 
 * [About](https://github.com/oslabs-beta/Kafkasocks/#About)
 * [Getting Started](https://github.com/oslabs-beta/Kafkasocks/#Getting-Started])
@@ -8,7 +12,7 @@
 * [Contributors](https://github.com/oslabs-beta/Kafkasocks/#Contributors)
 * [License](https://github.com/oslabs-beta/Kafkasocks/#License)
 
-<h3 href="#About">About</h3>
+<h2 href="#About">About</h2>
 
 Kafka Socks is an easy-to-use and lightweight framework that combines Kafka consumer functionality with WebSockets to pipe the Kafka messages directly to the frontend client, in realtime. Kafka Socks abstracts away much of the boilerplate and setup of this oft-used Kafka-Websocket architecture, providing developers with a simple and intuitive set of classes to achieve a powerful result on the client-side.
 
@@ -19,7 +23,7 @@ Without a WebSocket, the only way a web client could access data consumed by the
 Using the observer design pattern, WebSockets permit the server to pipe data in time because there is always an established and open link between the server and client. Kafka Socks did not invent this system design. In fact, it is a relatively common pattern to achieve realtime data processing on the frontend. Instead, Kafka Socks abstracts away the details of implementing this kafka-websocket design pattern, providing developers with an easy way to implement this pattern in a few lines of code.
 
 
-<h3 href="#Features">Features</h3>
+<h2 href="#Features">Features</h2>
 
 * Confluent 
     * Used to set up a connection with a Confluent.io cluster
@@ -28,11 +32,11 @@ Using the observer design pattern, WebSockets permit the server to pipe data in 
 * Subject
     * Used to create a new subject to which consumers can subscribe
 
-<h3>Getting Started</h3>
+<h2>Getting Started</h2>
 
 ``` npm install kafka-socks ```
 
-<h3 href="#Example">Example</h3>
+<h2 href="#Example">Example</h2>
 
 Set up your Confluent.io connection using the Kafka Socks Confluent class.
 ```typescript
@@ -123,7 +127,7 @@ server.listen(PORT, () => {
 });
 ```
 
-<h3 href="#Contributors">Contributors</h3>
+<h2 href="#Contributors">Contributors</h2>
 
 Kafka Socks is an open-source community project on Github. While the project is maintained by a small group of dedicated engineers (below), we are grateful to the community for bug fixes, feature development and other contributions. 
 
