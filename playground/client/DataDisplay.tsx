@@ -40,7 +40,7 @@ const DataDisplay: FC = ({ }) => {
       flexDirection: 'column',
       justifyItems: 'center',
       alignItems: 'center',
-      height: '500vh',
+      height: 'auto',
     }
   }))
 
@@ -57,15 +57,15 @@ const DataDisplay: FC = ({ }) => {
     switch (running) {
       case "STARTED":
         console.log('in started')
-        fetch('http://localhost:3000/consume')
+        fetch('http://localhost:3001/consume')
         break;
       case "RESUMED":
         console.log("in resume")
-        fetch('http://localhost:3000/resume')
+        fetch('http://localhost:3001/resume')
         break;
       case "PAUSED":
         console.log('in paused')
-        // fetch('http://localhost:3000/pause')
+        // fetch('http://localhost:3001/pause')
         break; 
     }
     
@@ -98,7 +98,7 @@ const DataDisplay: FC = ({ }) => {
     ],
   };
 
-  const socket = io("http://localhost:3000/trucks", {
+  const socket = io("http://localhost:3001/trucks", {
     transports: ["websocket"],
     upgrade: false,
     });
@@ -185,7 +185,7 @@ const DataDisplay: FC = ({ }) => {
           color="secondary"
           onClick={() => {
 
-        fetch('http://localhost:3000/resume')
+        fetch('http://localhost:3001/resume')
       }
         }> Resume </Button>
         <Button
@@ -193,7 +193,7 @@ const DataDisplay: FC = ({ }) => {
           variant="contained"
           color="secondary"
           onClick={() => {
-        fetch('http://localhost:3000/pause')
+        fetch('http://localhost:3001/pause')
         //setRunning("PAUSED")
             }}> Stop </Button>
           </Container>
