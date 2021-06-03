@@ -54,20 +54,23 @@ const DataDisplay: FC = ({ }) => {
   useEffect(() => {
     console.log('in useffect')
     console.log(running)
-    switch (running) {
-      case "STARTED":
-        console.log('in started')
-        fetch('http://localhost:3001/consume')
-        break;
-      case "RESUMED":
-        console.log("in resume")
-        fetch('http://localhost:3001/resume')
-        break;
-      case "PAUSED":
-        console.log('in paused')
-        // fetch('http://localhost:3001/pause')
-        break; 
+    if(started){
+      fetch('http://localhost:3001/consume')
     }
+    // switch (running) {
+    //   case "STARTED":
+    //     console.log('in started')
+    //     fetch('http://localhost:3001/consume')
+    //     break;
+    //   case "RESUMED":
+    //     console.log("in resume")
+    //     fetch('http://localhost:3001/resume')
+    //     break;
+    //   case "PAUSED":
+    //     console.log('in paused')
+    //     // fetch('http://localhost:3001/pause')
+    //     break; 
+    // }
     
  
   }) 
@@ -171,12 +174,14 @@ const DataDisplay: FC = ({ }) => {
           color="secondary"
           onClick={() => {
                 if(!started){
+                  fetch('http://localhost:3001/consume')
                   setStarted(true);
-                  setRunning("STARTED")
+
+                  // setRunning("STARTED")
                 }
-                else {
-                  setRunning("RESUMED")
-                }
+                // else {
+                //   setRunning("RESUMED")
+                // }
         
       }}> Start </Button>
         <Button
