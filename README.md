@@ -4,7 +4,12 @@
 <h1 align ="center">Kafka Socks</h1>
 <p align="center">An easy-to-use, lightweight KafkaJS-to-Socket.io library for connecting and visualizing data in realtime.</p>
 <p align="center">
-<img id="MIT-License" src="https://img.shields.io/apm/l/atomic-design-ui.svg?" />
+<a href="https://github.com/oslabs-beta/Kafkasocks/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/oslabs-beta/Kafkasocks"></a>
+<img alt="npm" src="https://img.shields.io/npm/v/kafka-socks">
+<a href="https://github.com/oslabs-beta/Kafkasocks/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/oslabs-beta/Kafkasocks"></a>
+<a href="https://github.com/oslabs-beta/Kafkasocks/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/oslabs-beta/Kafkasocks"></a>
+<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/oslabs-beta/Kafkasocks">
+ <a href="https://www.producthunt.com/posts/kafka-socks?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-kafka-socks" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=298340&theme=dark" alt="Kafka Socks - An easy-to-use, lightweight KafkaJS to Socket.io library | Product Hunt" style="width: 106px; height: 23px;" width="106" height="23" /></a>
 </p>
 <h2>Table of Contents</h2>
 
