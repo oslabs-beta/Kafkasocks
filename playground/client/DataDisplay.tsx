@@ -44,7 +44,7 @@ const DataDisplay: FC = ({}) => {
         flexDirection: "column",
         justifyItems: "center",
         alignItems: "center",
-        height: "500vh",
+        height: "auto",
       },
     })
   );
