@@ -65,7 +65,15 @@ const GettingStarted: FC = () => {
         <Typography color="textPrimary" gutterBottom>
           Simply install from npm and import into your project
         </Typography>
-        <Icon path={mdiNpm} size={2} />
+        <Icon 
+        path={mdiNpm} 
+        size={4}
+        label="install kafka-socks"
+        value="npm"
+        href="https://www.npmjs.com/package/kafka-socks"
+        target="_blank" 
+        rel="noopener noreferrer" 
+        />
         <SyntaxHighlighter
           language="javascript"
           style={materialLight}
