@@ -61,11 +61,11 @@ const DataDisplay: FC = ({}) => {
     switch (running) {
       case "STARTED":
         console.log("in started");
-        fetch("http://localhost:3000/consume");
+        fetch("/consume");
         break;
       case "RESUMED":
         console.log("in resume");
-        fetch("http://localhost:3000/resume");
+        fetch("/resume");
         break;
       case "PAUSED":
         console.log("in paused");

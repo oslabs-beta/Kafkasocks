@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import {
-  makeStyles, createStyles, Container, Typography,
+  makeStyles, createStyles, Container, Typography, requirePropFactory,
 } from '@material-ui/core';
 import TeamMember from '../components/TeamMembers';
 
