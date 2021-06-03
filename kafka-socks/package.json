@@ -1,25 +1,28 @@
 {
   "name": "kafka-socks",
-<<<<<<< HEAD
-  "version": "0.1.0",
-  "description": "Connect KafkaJS to WebSockets with ease.",
-  "main": "index.js",
-=======
-  "version": "0.1.2",
-  "description": "",
+  "version": "0.1.7",
+  "description": "An easy-to-use, lightweight KafkaJS-to-Socket.io library for connecting and visualizing data in realtime.",
   "main": "dist/index.js",
   "types": "index.d.ts",
   "files": [
     "/dist"
   ],
->>>>>>> c74d09a7684f7e5461c0598d42b9bf95c613ae7b
   "scripts": {
     "test": "ts-node Confluent Consumer Subject && npx jest --verbose true",
     "__run__": "tsc Kafkasocks.ts && node Kafkasocks.js"
   },
-  "keywords": [],
+  "keywords": [
+    "kafka",
+    "websocket",
+    "socket.io",
+    "kafkajs"
+  ],
   "author": "Allison Jacobs, Jason Fricano, Jenessa Chapalamadugu, Vinit Patel",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oslabs-beta/Kafkasocks"
+  },
   "dependencies": {
     "dotenv": "^10.0.0",
     "kafkajs": "^1.15.0",
