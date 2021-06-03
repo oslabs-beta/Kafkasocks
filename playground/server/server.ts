@@ -9,11 +9,11 @@ const { Server } = require("socket.io");
 // const {Consumer} = require('kafka-socks');
 // const {Subject} = require('kafka-socks');
 
-// import { Consumer } from 'kafka-socks';
-// import { Subject } from 'kafka-socks';
+import { Consumer } from 'kafka-socks';
+import { Subject } from 'kafka-socks';
 
-import Consumer from "./../../kafka-socks/Consumer";
-import Subject from "./../../kafka-socks/Subject";
+// import Consumer from "./../../kafka-socks/Consumer";
+// import Subject from "./../../kafka-socks/Subject";
 
 const app = express();
 const server = http.createServer(app);

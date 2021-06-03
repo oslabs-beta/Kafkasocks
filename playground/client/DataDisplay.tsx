@@ -44,7 +44,7 @@ const DataDisplay: FC = ({}) => {
         flexDirection: "column",
         justifyItems: "center",
         alignItems: "center",
-        height: "500vh",
+        height: "auto",
       },
     })
   );
@@ -56,24 +56,29 @@ const DataDisplay: FC = ({}) => {
 
   // data object for chartjs
   useEffect(() => {
-    console.log("in useffect");
-    console.log(running);
-    switch (running) {
-      case "STARTED":
-        console.log("in started");
-        fetch("/consume");
-        break;
-      case "RESUMED":
-        console.log("in resume");
-        fetch("/resume");
-        break;
-      case "PAUSED":
-        console.log("in paused");
-        // fetch('http://localhost:3000/pause')
-        break;
+    console.log('in useffect')
+    console.log(running)
+    if(started){
+      fetch('http://localhost:3001/consume')
     }
-  });
-
+    // switch (running) {
+    //   case "STARTED":
+    //     console.log('in started')
+    //     fetch('http://localhost:3001/consume')
+    //     break;
+    //   case "RESUMED":
+    //     console.log("in resume")
+    //     fetch('http://localhost:3001/resume')
+    //     break;
+    //   case "PAUSED":
+    //     console.log('in paused')
+    //     // fetch('http://localhost:3001/pause')
+    //     break; 
+    // }
+    
+ 
+  }) 
+  
   const data = {
     datasets: [
       {
@@ -155,53 +160,45 @@ const DataDisplay: FC = ({}) => {
   const classes = useStyles();
   return (
     // <ThemeProvider theme={theme}>
-    <Container className={classes.wrapper}>
-      <Typography variant="h4" color="textPrimary" align="center" gutterBottom>
-        Demo
-      </Typography>
-      <Container className={classes.main}>
-        <Line data={data} options={options} />
-        <Container className={classes.buttonsContainer}>
-          <Button
-            className={classes.button}
-            variant="contained"
-            color="secondary"
-            onClick={() => {
-              if (!started) {
-                setStarted(true);
-                setRunning("STARTED");
-              } else {
-                setRunning("RESUMED");
-              }
-            }}
-          >
-            {" "}
-            Start{" "}
-          </Button>
-          <Button
-            className={classes.button}
-            variant="contained"
-            color="secondary"
-            onClick={() => {
-              fetch("/resume");
-            }}
-          >
-            {" "}
-            Resume{" "}
-          </Button>
-          <Button
-            className={classes.button}
-            variant="contained"
-            color="secondary"
-            onClick={() => {
-              fetch("/pause");
-              //setRunning("PAUSED")
-            }}
-          >
-            {" "}
-            Stop{" "}
-          </Button>
-        </Container>
+    <Container className={ classes.wrapper }>
+      <Typography variant="h4" color="textPrimary" align="center" gutterBottom>Demo</Typography>
+      <Container className={ classes.main }>
+      <Line data={data} options={options} />
+        <Container className={ classes.buttonsContainer}>
+        <Button
+          className={classes.button}
+          variant="contained"
+          color="secondary"
+          onClick={() => {
+                if(!started){
+                  fetch('http://localhost:3001/consume')
+                  setStarted(true);
+
+                  // setRunning("STARTED")
+                }
+                // else {
+                //   setRunning("RESUMED")
+                // }
+        
+      }}> Start </Button>
+        <Button
+          className={classes.button}
+          variant="contained"
+          color="secondary"
+          onClick={() => {
+
+        fetch('http://localhost:3001/resume')
+      }
+        }> Resume </Button>
+        <Button
+          className={classes.button}
+          variant="contained"
+          color="secondary"
+          onClick={() => {
+        fetch('http://localhost:3001/pause')
+        //setRunning("PAUSED")
+            }}> Stop </Button>
+          </Container>
       </Container>
     </Container>
   );

@@ -53,6 +53,7 @@ module.exports = {
     port: 8000,
     proxy: {
       '*': 'http://[::1]:3001',
+      // '/'
       changeOrigin: true,
     },
   },
