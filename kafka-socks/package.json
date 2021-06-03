@@ -1,6 +1,6 @@
 {
   "name": "kafka-socks",
-  "version": "0.1.7",
+  "version": "0.1.9",
   "description": "An easy-to-use, lightweight KafkaJS-to-Socket.io library for connecting and visualizing data in realtime.",
   "main": "dist/index.js",
   "types": "index.d.ts",

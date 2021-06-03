@@ -5,16 +5,7 @@
 <p align="center">An easy-to-use, lightweight KafkaJS-to-Socket.io library for connecting and visualizing data in realtime.</p>
 <p align="center">
 <img id="MIT-License" src="https://img.shields.io/apm/l/atomic-design-ui.svg?" />
-<img id="MIT-License" src="https://img.shields.io/apm/l/atomic-design-ui.svg?" />
 </p>
-<h2>Table of Contents</h2>
-
-- [About](https://github.com/oslabs-beta/Kafkasocks/#About)
-- [Features](https://github.com/oslabs-beta/Kafkasocks/#Features)
-- [Getting Started](https://github.com/oslabs-beta/Kafkasocks/#Getting-Started])
-- [Example](https://github.com/oslabs-beta/Kafkasocks/#Example)
-- [Contributors](https://github.com/oslabs-beta/Kafkasocks/#Contributors)
-- [License](https://github.com/oslabs-beta/Kafkasocks/#License)
 
 <h2 href="#About">About</h2>
 
